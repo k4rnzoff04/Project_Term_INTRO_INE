@@ -1,0 +1,598 @@
+@import url('https://fonts.googleapis.com/css2?family=Mali&family=Playpen+Sans+Thai:wght@100..800&display=swap');
+
+/* ========== Base ========== */
+:root{
+  --orange: #ee7836;
+  --text: #222222;
+  --muted: #757575;
+  --aside: #ffc19d;
+  --gap: 20px;
+}
+
+*,
+*::before,
+*::after { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  color: var(--text);
+  font-family: "Mali", cursive;
+  line-height: 1.5;
+}
+
+/* ========== Header ========== */
+header {
+  background-color: var(--orange);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 48px 16px;
+  text-align: center;
+
+  background-image: url("../img/fitm.jpg"); /* ใส่ path ไปที่ไฟล์จริง */
+  background-size: cover;     /* ขยายเต็มพื้นที่ header */
+  background-position: center; /* จัดกึ่งกลางรูป */
+  background-repeat: no-repeat; /* ไม่ให้ tile ซ้ำ */
+}
+
+.header-title {
+  font-size: 48px;
+  background-color: rgba(0,0,0,.60);
+  color: #fff;
+  padding: 10px;
+  border-radius: 8px;
+  margin: 0;
+  line-height: 1.15;
+}
+
+/* ========== Nav ========== */
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--muted);
+  padding: 0 20px;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin: 0;
+  padding: 0;
+}
+
+nav li { margin: 0; }
+
+nav a {
+  display: block;
+  padding: 10px 16px;
+  text-decoration: none;
+  color: var(--text);
+  border-radius: 8px;
+}
+
+nav a:hover {
+  color: #fff;
+  background-color: #222222;
+}
+
+/* ========== Layout ========== */
+.container {
+  display: flex;
+  gap: var(--gap);
+  padding: 0px;
+  padding-left: 0px;
+}
+
+.main-content {
+  flex: 1;
+  min-width: 0;
+}
+
+article h1 { margin-top: 0; }
+
+/* ========== Aside ========== */
+aside {
+  width: 240px;
+  background-color: var(--aside);
+  flex-shrink: 0;
+  padding: 8px 0;
+  margin-left: 0px;
+  height: auto; /* ไม่ fix สูง */
+}
+
+article{
+    margin: 20px 0px;
+    display: flex;
+    justify-content: center;
+}
+
+.container-article{
+    background-color: var(--aside);
+    width: 80%;
+    height: auto;
+    padding: 0 12px;
+    border-radius: 8px;
+}
+
+.main-content-article{
+    display: flex;
+    justify-content: center;
+}
+
+.sub-content-article{
+  margin-left: 1rem;
+  &.sub-content-article .row-sub-content{
+    display: flex;
+    justify-content: space-between; /* ซ้าย-ขวา */
+    align-items: center;            /* จัดให้อยู่แนวเดียวกัน */
+    margin-bottom: 12px;
+    gap: 16px; 
+  }
+  &.sub-content-article a{
+    flex: 1;                        /* กินพื้นที่ฝั่งซ้าย */
+    color: var(--text);
+    text-decoration: none;
+    padding: 6px 10px;
+    border-radius: 6px;
+    word-wrap: break-word;
+  }
+  & a:hover{
+    color: #fff;
+    background-color: #222222;
+  }
+  &.sub-content-article .date {
+  white-space: nowrap;            /* กันไม่ให้ตัดบรรทัด */
+  font-size: 0.9rem;
+  color: #444;
+  }
+}
+
+
+
+.Login a,
+.Register-Project-System a,
+.main-Index a,
+.Send-Progress a,
+.view-Progress a, 
+.view-schedule-test-project a,
+.view-list-project a {
+  color: var(--text);
+  display: block;
+  text-align: center;
+  text-decoration: none;
+  padding: 10px 12px;
+  border-radius: 8px;
+  margin: 6px 8px;
+}
+
+.Login a:hover,
+.Register-Project-System a:hover,
+.main-Index a:hover,
+.Send-Progress a:hover,
+.view-Progress a:hover,
+.view-schedule-test-project a:hover,
+.view-list-project a:hover {
+  color: #fff;
+  background-color: #222222;
+}
+
+/* ========== Footer ========== */
+footer {
+  position: relative;
+  margin-top: 0px;
+  background: #000000;
+  padding: 24px 0;
+  display: flex;
+}
+
+.Footer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  color: #fff;
+  width: 100%;
+  max-width: none;            /* ยกเลิกการล็อกความกว้าง */
+  margin: 0;                  /* ยกเลิก 0 auto ที่ทำให้กล่องไปอยู่กลาง */
+  gap: 12px;
+  padding-inline: 0;          /* เอา padding ขอบซ้าย/ขวาออก (ชิดสุด) */
+}
+
+.Footer::after {
+  content: "";
+  flex: 0 0 112px;           /* ขนาดเท่าโลโก้โดยประมาณ */
+}
+
+.Footer-img-logo img{
+  width: 112px;
+  display: block;
+  margin-left: 0;
+}
+
+.text-center-footer{
+  flex: 1;
+  margin: 0;
+  text-align: center;
+  align-items: center;
+}
+/* ===== Modal (Popup) ===== */
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.45);
+  display: none;
+  place-items: center;
+  z-index: 9999;
+}
+
+.modal-backdrop.is-open {
+  display: grid; /* โชว์เมื่อมี class .is-open */
+}
+
+.modal {
+  width: min(560px, calc(100vw - 32px));
+  max-height: min(80vh, 720px);
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0,0,0,.25);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--orange);
+  color: var(--text);
+  padding: 12px 16px;
+}
+
+.modal-close {
+  background: transparent;
+  border: 0;
+  font-size: 28px;
+  line-height: 1;
+  cursor: pointer;
+  color: #222;
+}
+
+.modal-body {
+  padding: 16px;
+  overflow: auto;
+}
+
+.modal-list {
+  margin: 8px 0 16px;
+  padding-left: 18px;
+}
+
+.modal-checkbox {
+  display: inline-flex;
+  gap: 8px;
+  align-items: center;
+  user-select: none;
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  padding: 12px 16px;
+  border-top: 1px solid #e9e9e9;
+}
+
+.modal-button {
+  padding: 10px 14px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  background: #f7f7f7;
+  cursor: pointer;
+}
+
+.modal-button:hover {
+  background: #eee;
+}
+
+
+
+
+/* ========== Responsive (≤560px) ========== */
+@media screen and (max-width: 560px) {
+  .header-title {
+    font-size: 28px;
+  }
+
+  nav {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 8px;
+    padding: 8px 12px;
+  }
+  nav ul {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 8px;
+  }
+  nav a {
+    width: 100%;
+    padding: 12px 14px;
+  }
+
+  .container {
+    flex-direction: column;
+    gap: 16px;
+    padding: 12px;
+  }
+
+  /* ให้ main มาก่อน แล้วค่อย aside */
+  .main-content { order: 2; }
+  aside {
+    order: 1;
+    width: 100%;
+  }
+
+  .modal {
+    width: calc(100vw - 24px);
+    max-height: 85vh;
+  }
+}
+
+/* ===== Details Layout v2: แทนที่สไตล์ dt/dd เดิมทั้งหมด ===== */
+
+/* เลิกใช้ grid 2 คอลัมน์เดิม แล้วให้ dl เป็นคอลัมน์เดี่ยว */
+.container-article dl {
+  display: block;
+  margin: 16px 0 8px;
+  padding: 0;
+}
+
+/* รีเซ็ตเส้นแบ่งเดิม (ถ้ามี) */
+.container-article dl > dt::after,
+.container-article dl > dd::after { content: none; }
+
+/* แถวรายละเอียด (ใช้ได้เฉพาะ dl ที่มี .row-sub-content) */
+.container-article dl .row-sub-content {
+  display: grid;
+  grid-template-columns: 1fr;  /* ซ้อนบน-ล่าง (label บน, value ล่าง) */
+  gap: 6px;
+  margin: 0 0 12px;
+  padding: 12px 14px;
+  background: #fff;
+  border: 1px solid rgba(0,0,0,.06);
+  border-left: 4px solid var(--orange);
+  border-radius: 10px;
+  box-shadow: 0 6px 18px rgba(0,0,0,.06);
+  transition: transform .15s ease, box-shadow .15s ease;
+}
+
+/* เอฟเฟกต์ hover เบา ๆ */
+.container-article dl .row-sub-content:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 10px 24px rgba(0,0,0,.08);
+}
+
+/* ป้ายชื่อฟิลด์ (dt) */
+.container-article dl .row-sub-content dt {
+  margin: 0;
+  font-weight: 600;
+  font-size: .95rem;
+  color: #222;
+  letter-spacing: .2px;
+  /* ทำเป็นป้ายเล็ก ๆ */
+  width: fit-content;
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: rgba(238,120,54,.12); /* อิง var(--orange) แบบโปร่ง */
+  border: 1px solid rgba(238,120,54,.35);
+}
+
+/* ค่า (dd) */
+.container-article dl .row-sub-content dd {
+  margin: 0;
+  color: #2b2b2b;
+  line-height: 1.55;
+  word-break: break-word;
+  font-size: 1rem;
+}
+
+/* ถ้าค่าว่าง แสดงขีดกลางอัตโนมัติ */
+.container-article dl .row-sub-content dd:empty::before {
+  content: "—";
+  color: #888;
+}
+
+/* อีเมล/ลิงก์ในค่า: เน้นให้อ่านง่าย */
+.container-article dl .row-sub-content dd a {
+  color: #0b57d0;
+  text-decoration: underline;
+}
+
+/* ปรับ spacing ของการ์ดสุดท้ายให้พอดี */
+.container-article dl .row-sub-content:last-child {
+  margin-bottom: 4px;
+}
+
+/* ส่วนป็อบอัพของการส่งความคืบหน้า */
+/* ===== Form rows inside modal ===== */
+.form-row {
+  display: grid;
+  gap: 6px;
+  margin: 10px 0 14px;
+}
+
+.form-row label {
+  font-weight: 600;
+  color: #222;
+}
+
+.form-row input[type="text"],
+.form-row input[type="date"],
+.form-row input[type="file"],
+.form-row textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid rgba(0,0,0,.18);
+  border-radius: 8px;
+  font: inherit;
+  color: var(--text);
+  background: #fff;
+}
+
+.form-row input[type="text"]:focus,
+.form-row input[type="date"]:focus,
+.form-row input[type="file"]:focus,
+.form-row textarea:focus {
+  outline: 3px solid rgba(0,0,0,.15);
+  outline-offset: 2px;
+  border-color: #222;
+}
+
+.form-row .hint {
+  color: #666;
+  font-size: .85rem;
+}
+
+/* แยกปุ่มหลัก/ยกเลิกให้เห็นชัดขึ้น */
+#progress-submit {
+  background: var(--orange);
+  color: #111;
+  border-color: rgba(0,0,0,.05);
+  font-weight: 600;
+}
+#progress-submit:hover {
+  filter: brightness(.95);
+}
+
+#progress-cancel {
+  background: #f4f4f4;
+}
+
+/* ===== Success state inside modal ===== */
+.success-pane {
+  display: grid;
+  gap: 10px;
+  place-items: center;
+  text-align: center;
+  padding: 8px 6px 4px;
+  animation: fadeIn .15s ease;
+}
+
+.success-icon {
+  width: 68px;
+  height: 68px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-size: 34px;
+  font-weight: 700;
+  background: rgba(238,120,54,.15); /* อิง var(--orange) โปร่งแสง */
+  border: 2px solid rgba(238,120,54,.45);
+  color: #1b1b1b;
+}
+
+.success-title {
+  margin: 6px 0 0;
+  font-size: 1.2rem;
+}
+
+.success-text {
+  margin: 0 0 8px;
+  color: #444;
+  font-size: .95rem;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(2px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ซ่อน success pane เป็นค่าเริ่มต้น */
+#progress-success { display: none; }
+
+/* เมื่อเป็นโหมดสำเร็จ ให้ซ่อนฟอร์มและโชว์ success pane */
+.modal-body.is-success #progress-form { display: none !important; }
+.modal-body.is-success #progress-success { display: grid; }
+
+/* Css % ความคืบหน้า */
+/* ===== Progress Circle ===== */
+.progress-wrapper {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+.progress-circle {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  background: conic-gradient(
+    var(--orange) 0% 0%,  /* เริ่มจาก 0% */
+    #f0f0f0 0% 100%       /* สีพื้นหลัง */
+  );
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  font-weight: bold;
+  font-size: 1.5rem;
+  color: #222;
+  transition: background 0.5s ease;
+}
+
+.progress-circle::before {
+  content: "";
+  position: absolute;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background: #fff; /* ช่องว่างตรงกลาง */
+}
+
+.progress-value {
+  position: relative;
+  z-index: 1;
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.progress-details {
+  margin-top: 20px;
+  font-size: 1rem;
+  color: var(--text);
+  padding: 10px;
+  background: #fff;
+  border-left: 4px solid var(--orange);
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,.06);
+}
+
+
+/* ===== Responsive ===== */
+@media (min-width: 880px) {
+  /* บนจอใหญ่ เพิ่มความอัดแน่นแบบอ่านง่าย */
+  .container-article dl .row-sub-content {
+    padding: 14px 16px;
+  }
+  .container-article dl .row-sub-content dt {
+    font-size: .95rem;
+  }
+  .container-article dl .row-sub-content dd {
+    font-size: 1.02rem;
+  }
+}
+@media (max-width: 560px) {
+  /* มือถือ: เพิ่มช่องไฟให้กด/แตะง่าย */
+  .container-article dl .row-sub-content {
+    padding: 12px 12px;
+  }
+  .container-article dl .row-sub-content dt {
+    font-size: .9rem;
+  }
+}
+

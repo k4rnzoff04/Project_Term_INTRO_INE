@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="css/mystyle.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-info">
+            <h1 class="header-title">ระบบการจัดการข้อมูลโครงงานพิเศษ และโครงงานสหกิจ</h1>
+        </div>
+    </header>
+
+    <!-- Navbar -->
+     <nav>
+        <ul>
+            <li><a href="https://www.kmutnb.ac.th/">KMUTNB</a></li>
+            <li><a href="http://202.44.47.45/fitm/">FITM</a></li>
+            <li><a href="http://202.44.47.45/fitm/departments/IT">IT DEPT</a></li>
+        </ul>
+     </nav>
+    <div class="container">
+            <!-- Aside -->
+            <aside>
+                <div class="Login">
+                    <a href="Login.html">เข้าสู่ระบบ</a>
+                </div>
+                <div class="Register-Project-System">
+                    <a href="Register.html">ยื่นสอบ</a>
+                </div>
+                <div class="view-schedule-test-project">
+                    <a href="#">ดูตารางสอบโครงงานพิเศษ</a>
+                </div>
+                <div class="view-list-project">
+                    <a href="#">ดูรายชื่อโครงงานพิเศษ</a>
+                </div>
+            </aside>
+            <div class="main-content">
+                    <!-- article -->
+                    <article>
+                        <div class="container-article">
+                            <div class="main-content-article">
+                                <h2>ประกาศข่าวสารจากภาควิชา</h1>
+                            </div>
+                            <div class="sub-content-article">
+                                <div class="row-sub-content">
+                                    <a href="#">ไฟล์รูปเล่มปริญญานิพนธ์</a>
+                                    <span class="date">05/01/2566</span>
+                                </div>
+                                <div class="row-sub-content">
+                                    <a href="#">ดาวน์โหลดคู่มือจัดทำปริญญานิพนธ์</a>
+                                    <span class="date">05/09/2568</span>
+                                </div>
+                                <div class="row-sub-content">
+                                    <a href="#">ประกาศสำหรับนักศึกษาที่ทำโครงงานให้หน่วยงานจากภายนอก จะต้องมีที่ปรึกษาร่วมเข้าสอบ 100% ทุกกลุ่มค่ะ</a>
+                                    <span class="date">06/09/2566</span>
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </article>
+                    <!-- ขึ้นบรรทัดใหม่ -->
+
+            </div>
+    </div>
+     <footer>
+        <div class="Footer">
+            <div class="Footer-img-logo">
+                <img src="img/fitm-logo-2.png" alt="Logo">
+            </div>
+            <div class="text-center-footer">
+                <p>มหาวิทยาลัยเทคโนโลยีพระจอมเกล้าพระนครเหนือ วิทยาเขตปราจีนบุรี</p>
+                <p>คณะเทคโนโลยีและการจัดการอุตสาหกรรม</p>
+                <p>129 หมู่ 21 ตำบลเนินหอม อำเภอเมือง จังหวัดปราจีนบุรี 25230</p>
+            </div>
+        </div>
+    </footer>
+        <!-- Modal: คำแนะนำการใช้งาน -->
+    <div class="modal-backdrop is-open" id="welcome-backdrop">
+        <div class="modal" role="dialog" aria-modal="true" aria-labelledby="welcome-title" aria-describedby="welcome-desc">
+            <div class="modal-header">
+                <h3 id="welcome-title">คำแนะนำการใช้งานเว็บไซต์</h3>
+                <button class="modal-close" id="welcome-close" aria-label="ปิดหน้าต่าง">&times;</button>
+            </div>
+
+            <div class="modal-body" id="welcome-desc">
+                <p>สำหรับผู้ใช้งานครั้งแรก แนะนำให้อ่านหัวข้อด้านล่างให้ครบถ้วน:</p>
+                <ul class="modal-list">
+                    <li><strong>การเข้าสู่ระบบ</strong>: ใช้เมนู “เข้าสู่ระบบ” ทางซ้าย</li>
+                    <li><strong>ยื่นสอบโครงงาน</strong>: เปิดเมนู “ยื่นสอบ” และกรอกข้อมูลให้ครบ</li>
+                    <li><strong>ดาวน์โหลดเอกสาร</strong>: ที่ส่วน “ประกาศข่าวสารจากภาควิชา”</li>
+                    <li><strong>ตารางสอบ</strong>: ดูเมนู “ดูตารางสอบโครงงานพิเศษ”</li>
+                    <li><strong>ติดต่อภาควิชา</strong>: ผ่านหน้า “IT DEPT” ในแถบเมนูด้านบน</li>
+                </ul>
+
+                <label class="modal-checkbox">
+                    <input type="checkbox" id="welcome-dont-show"> อย่าแสดงอีก
+                </label>
+            </div>
+
+            <div class="modal-actions">
+                <button class="modal-button" id="welcome-ok">เข้าใจแล้ว</button>
+            </div>
+        </div>
+    </div>
+    <!-- source ของ popup ครั้งแรกที่เข้ามา -->
+    <script>
+  (function () {
+    const KEY = 'hideWelcomeModal';
+    const backdrop = document.getElementById('welcome-backdrop');
+    const closeBtn = document.getElementById('welcome-close');
+    const okBtn = document.getElementById('welcome-ok');
+    const dontShow = document.getElementById('welcome-dont-show');
+
+    function openModal() {
+      backdrop.classList.add('is-open');
+      okBtn.focus();
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal() {
+      if (dontShow.checked) {
+        localStorage.setItem(KEY, '1');
+      }
+      backdrop.classList.remove('is-open');
+      document.body.style.overflow = '';
+    }
+
+    backdrop.addEventListener('click', (e) => {
+      if (e.target === backdrop) closeModal();
+    });
+    closeBtn.addEventListener('click', closeModal);
+    okBtn.addEventListener('click', closeModal);
+
+    document.addEventListener('keydown', (e) => {
+      if (backdrop.classList.contains('is-open') && e.key === 'Escape') {
+        closeModal();
+      }
+    });
+
+    document.addEventListener('DOMContentLoaded', () => {
+      if (!localStorage.getItem(KEY)) openModal();
+    });
+  })();
+</script>
+
+
+</body>
+</html>

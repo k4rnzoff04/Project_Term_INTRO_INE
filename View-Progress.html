@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>รายละเอียดโครงงานพิเศษ</title>
+  <!-- ใช้สไตล์ชุดเดียวกับหน้า Home -->
+  <link rel="stylesheet" href="css/mystyle.css" />
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="header-info">
+      <h1 class="header-title">ระบบการจัดการข้อมูลโครงงานพิเศษ และโครงงานสหกิจ</h1>
+    </div>
+  </header>
+
+  <!-- Navbar -->
+  <nav>
+    <ul>
+      <li><a href="https://www.kmutnb.ac.th/">KMUTNB</a></li>
+      <li><a href="http://202.44.47.45/fitm/">FITM</a></li>
+      <li><a href="http://202.44.47.45/fitm/departments/IT">IT DEPT</a></li>
+    </ul>
+  </nav>
+
+  <div class="container">
+    <!-- Aside -->
+    <aside>
+      <!-- <div class="Login">
+        <a href="Login.html">เข้าสู่ระบบ</a>
+      </div> -->
+      <!-- <div class="Register-Project-System">
+        <a href="#">ยื่นสอบ</a>
+      </div> -->
+      <div class="main-Index">
+        <a href="indexStd.html">หน้าหลัก</a>
+      </div>
+      <div class="Send-Progress">
+        <a href="#">ส่งความคืบหน้า</a>
+      </div>
+      <div class="view-Progress">
+        <a href="#">ดูความคืบหน้า</a>
+      </div>
+      <div class="view-schedule-test-project">
+        <a href="#">ดูตารางสอบโครงงานพิเศษ</a>
+      </div>
+      <div class="view-list-project">
+        <a href="#">ดูรายชื่อโครงงานพิเศษ</a>
+      </div>
+    </aside>
+
+    <!-- Main -->
+    <div class="main-content">
+        <article>
+            <div class="container-article" role="region" aria-labelledby="progress-title">
+            <div class="main-content-article">
+                <h2 id="progress-title">ความคืบหน้าโครงงาน</h2>
+            </div>
+
+            <!-- Progress Circle -->
+            <div class="progress-wrapper">
+                <div class="progress-circle" data-progress="0">
+                <span class="progress-value">25%</span>
+                </div>
+            </div>
+
+            <!-- รายละเอียด -->
+            <div class="progress-details">
+                <p><strong>ความคืบหน้าโครงงาน :</strong> Scenario = 25%</p>
+                <p><strong>หมายเหตุ :</strong> โปรดรายงานความคืบหน้ากับอาจารย์ที่ปรึกษาทุกสัปดาห์</p>
+            </div>
+            </div>
+        </article>
+    </div>
+</div>
+  <!-- Footer -->
+  <footer>
+    <div class="Footer">
+      <div class="Footer-img-logo">
+        <img src="img/fitm-logo-2.png" alt="Logo" />
+      </div>
+      <div class="text-center-footer">
+        <p>มหาวิทยาลัยเทคโนโลยีพระจอมเกล้าพระนครเหนือ วิทยาเขตปราจีนบุรี</p>
+        <p>คณะเทคโนโลยีและการจัดการอุตสาหกรรม</p>
+        <p>129 หมู่ 21 ตำบลเนินหอม อำเภอเมือง จังหวัดปราจีนบุรี 25230</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===== Popup: ส่งความคืบหน้า ===== -->
+<div class="modal-backdrop" id="progress-backdrop" aria-hidden="true">
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="progress-title" aria-describedby="progress-desc">
+    <!-- ส่วนหัว -->
+    <div class="modal-header">
+      <h3 id="progress-title">ส่งความคืบหน้าโครงงาน</h3>
+      <button class="modal-close" id="progress-close" aria-label="ปิดหน้าต่าง">&times;</button>
+    </div>
+
+    <!-- เนื้อหา -->
+    <div class="modal-body" id="progress-desc">
+      <!-- ฟอร์มส่งความคืบหน้า
+           NOTE: ตอนนี้ยังไม่มี backend → ใช้ action="#" และป้องกันส่งจริงใน JS -->
+      <form id="progress-form" novalidate>
+        <!-- 1) ครั้งที่ (Text) -->
+        <div class="form-row">
+          <label for="progress-round">ส่งรายงานความคืบหน้าครั้งที่</label>
+          <input type="text" id="progress-round" name="round" placeholder="เช่น 1, 2, 3" required />
+          <small class="hint">ระบุเป็นเลขลำดับครั้ง (จำเป็น)</small>
+        </div>
+
+        <!-- 2) วันที่ (Date Picker)
+             ใช้ input type="date" เพื่อให้เบราว์เซอร์เปิดปฏิทินให้โดยอัตโนมัติ -->
+        <div class="form-row">
+          <label for="progress-date">วันที่</label>
+          <input type="date" id="progress-date" name="date" required />
+          <small class="hint">เลือกวัน/เดือน/ปี (จำเป็น)</small>
+        </div>
+
+        <!-- 3) รายละเอียด (Textarea) -->
+        <div class="form-row">
+          <label for="progress-detail">รายละเอียด</label>
+          <textarea id="progress-detail" name="detail" rows="4" placeholder="สรุปสิ่งที่ดำเนินการ / ปัญหา / สิ่งที่จะทำต่อไป" required></textarea>
+          <small class="hint">กรอกรายละเอียดความคืบหน้า (จำเป็น)</small>
+        </div>
+
+        <!-- 4) แนบไฟล์ (File input)
+             accept: ตัวอย่างกำหนดไฟล์ที่มักใช้ หากต้องการเพิ่ม/ลดนามสกุล ปรับได้ -->
+        <div class="form-row">
+          <label for="progress-file">แนบไฟล์</label>
+          <input type="file" id="progress-file" name="attachment"
+                 accept=".pdf,.doc,.docx,.ppt,.pptx,.xls,.xlsx,.png,.jpg,.jpeg" />
+          <small class="hint">แนบไฟล์ PDF/เอกสาร/รูปภาพ (ไม่จำเป็น)</small>
+        </div>
+
+        <!-- 5) ปุ่มกด -->
+        <div class="modal-actions">
+          <button type="submit" class="modal-button" id="progress-submit">ส่ง</button>
+          <button type="button" class="modal-button" id="progress-cancel">ยกเลิก</button>
+        </div>
+      </form>
+      <!-- Success pane: แสดงหลังส่งสำเร็จ -->
+        <div id="progress-success" class="success-pane" hidden>
+          <div class="success-icon" aria-hidden="true">✔</div>
+          <h3 class="success-title">ส่งรายงานความคืบหน้าสำเร็จ</h3>
+          <p class="success-text">
+          ระบบบันทึกข้อมูลที่คุณกรอกไว้เรียบร้อยแล้ว
+          </p>
+
+          <div class="modal-actions">
+            <button type="button" class="modal-button" id="progress-new">ส่งใหม่อีกครั้ง</button>
+            <button type="button" class="modal-button" id="progress-done">ปิดหน้าต่าง</button>
+          </div>
+        </div>
+    </div>
+  </div>
+</div>
+
+<!-- Script Popup ส่งความคืบหน้า -->
+<script>
+"use strict";
+(function () {
+  const openLink   = document.querySelector(".Send-Progress a");
+  const backdrop   = document.getElementById("progress-backdrop");
+  const dialog     = backdrop ? backdrop.querySelector(".modal") : null;
+  const closeBtn   = document.getElementById("progress-close");
+  const cancelBtn  = document.getElementById("progress-cancel");
+  const form       = document.getElementById("progress-form");
+  const roundInput = document.getElementById("progress-round");
+  const dateInput  = document.getElementById("progress-date");
+  const detailArea = document.getElementById("progress-detail");
+  const fileInput  = document.getElementById("progress-file");
+
+  // ✅ อ้างอิง modal-body เพื่อใส่ state class
+  const modalBody  = document.getElementById("progress-desc");
+
+  const successPane = document.getElementById("progress-success");
+  const btnDone     = document.getElementById("progress-done");
+  const btnNew      = document.getElementById("progress-new");
+
+  if (!openLink || !backdrop || !dialog || !closeBtn || !cancelBtn || !form) return;
+
+  const ALLOWED_EXTS = [".pdf",".doc",".docx",".ppt",".pptx",".xls",".xlsx",".png",".jpg",".jpeg"];
+  const MAX_FILE_SIZE_MB = 10;
+  const MAX_FILE_SIZE = MAX_FILE_SIZE_MB * 1024 * 1024;
+  let lastFocused = null;
+
+  function getFocusableEls(container) {
+    return container.querySelectorAll('a[href], button:not([disabled]), textarea, input, select, [tabindex]:not([tabindex="-1"])');
+  }
+  function isoToday(){ const d=new Date(); return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,"0")}-${String(d.getDate()).padStart(2,"0")}`; }
+  function hasAllowedExtension(name){ const lower=name.toLowerCase(); return ALLOWED_EXTS.some(ext=>lower.endsWith(ext)); }
+  function warn(msg){ alert(msg); }
+
+  function openModal() {
+    lastFocused = document.activeElement;
+
+    // ✅ กลับสู่โหมดฟอร์มทุกครั้งที่เปิด
+    modalBody.classList.remove("is-success");
+
+    if (dateInput) dateInput.min = isoToday();
+    backdrop.classList.add("is-open");
+    backdrop.removeAttribute("aria-hidden");
+    document.body.style.overflow = "hidden";
+
+    (roundInput || dialog.querySelector("button,[href],input,textarea,select"))?.focus();
+  }
+
+  function closeModal() {
+    backdrop.classList.remove("is-open");
+    backdrop.setAttribute("aria-hidden","true");
+    document.body.style.overflow = "";
+    lastFocused?.focus?.();
+  }
+
+  openLink.addEventListener("click",(e)=>{ e.preventDefault(); openModal(); });
+  backdrop.addEventListener("click",(e)=>{ if (e.target===backdrop) closeModal(); });
+  closeBtn.addEventListener("click", closeModal);
+  cancelBtn.addEventListener("click", closeModal);
+  document.addEventListener("keydown",(e)=>{ if (backdrop.classList.contains("is-open") && e.key==="Escape") closeModal(); });
+
+  dialog.addEventListener("keydown",(e)=>{
+    if (e.key!=="Tab") return;
+    const f = getFocusableEls(dialog); if (!f.length) return;
+    const first=f[0], last=f[f.length-1], active=document.activeElement;
+    if (e.shiftKey && active===first){ last.focus(); e.preventDefault(); }
+    else if (!e.shiftKey && active===last){ first.focus(); e.preventDefault(); }
+  });
+
+  function validateForm(){
+    const round=(roundInput?.value||"").trim();
+    const date =(dateInput?.value||"").trim();
+    const detail=(detailArea?.value||"").trim();
+    if (!round || !date || !detail){ warn("กรุณากรอกข้อมูลที่จำเป็นให้ครบ: ครั้งที่, วันที่, รายละเอียด"); return false; }
+    if (!/^[1-9]\d*$/.test(round)){ warn("กรุณาระบุ 'ครั้งที่' เป็นเลขจำนวนเต็มบวก (เช่น 1, 2, 3)"); roundInput?.focus(); return false; }
+    if (fileInput?.files?.[0]){
+      const f=fileInput.files[0];
+      if (!hasAllowedExtension(f.name)){ warn(`ชนิดไฟล์ไม่รองรับ: ${ALLOWED_EXTS.join(", ")}`); fileInput.focus(); return false; }
+      if (f.size>MAX_FILE_SIZE){ warn(`ไฟล์ใหญ่เกินไป (>${MAX_FILE_SIZE_MB}MB)`); fileInput.focus(); return false; }
+    }
+    return true;
+  }
+
+  form.addEventListener("submit", async (e)=>{
+    e.preventDefault();
+    if (!validateForm()) return;
+
+    const fd = new FormData(form);
+    try{
+      // ตัวอย่าง: await fetch('/api/progress',{ method:'POST', body:fd });
+      await new Promise(r=>setTimeout(r,150)); // demo
+
+      form.reset();
+
+      // ✅ สลับไปโหมด success ด้วย class (แทน hidden)
+      modalBody.classList.add("is-success");
+
+      // เลื่อนขึ้นบนสุด (กันกรณีสกรอลลงไป)
+      modalBody.scrollTo({ top: 0, behavior: "smooth" });
+
+      // โฟกัสปุ่ม “ปิดหน้าต่าง”
+      btnDone?.focus();
+    }catch(err){
+      console.error(err);
+      warn("ส่งข้อมูลไม่สำเร็จ กรุณาลองอีกครั้ง");
+    }
+  });
+
+  btnDone?.addEventListener("click", ()=> closeModal());
+  btnNew?.addEventListener("click", ()=>{
+    // กลับสู่โหมดฟอร์ม
+    modalBody.classList.remove("is-success");
+    roundInput?.focus();
+  });
+})();
+</script>
+
+  <script>
+document.addEventListener("DOMContentLoaded", () => {
+  const circle = document.querySelector(".progress-circle");
+  const value = circle.querySelector(".progress-value");
+
+  // กำหนดค่าความคืบหน้า (ตอนนี้เป็น 0%)
+  let progress = 25;
+
+  // อัปเดต UI
+  function updateProgress(percent) {
+    circle.style.background = `conic-gradient(
+      #28a745 ${percent * 3.6}deg,
+      #f44336 ${percent * 3.6}deg 360deg
+    )`;
+    value.textContent = percent + "%";
+  }
+
+  // เริ่มต้น
+  updateProgress(progress);
+});
+</script>
+
+</body>
+</html>

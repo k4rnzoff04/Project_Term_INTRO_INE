@@ -1,0 +1,258 @@
+<!doctype html>
+<html lang="th">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Register</title>
+
+  <!-- ใช้ CSS เดิม -->
+  <link rel="stylesheet" href="css/myCss.css" />
+  <style>
+    /* Overlay */
+    .overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.6);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity .35s ease;
+      z-index: 1000;
+    }
+    .overlay.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    /* Modal */
+    .modal {
+      background: var(--bg-card);
+      border: 1px solid var(--stroke);
+      border-radius: 20px;
+      padding: 30px 40px;
+      text-align: center;
+      color: var(--text);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+      transform: scale(0.8) translateY(40px);
+      opacity: 0;
+      transition: all .45s cubic-bezier(.175,.885,.32,1.275);
+    }
+    .overlay.active .modal {
+      transform: scale(1) translateY(0);
+      opacity: 1;
+    }
+
+    /* Check icon */
+    .checkmark {
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #ff944d, #ff4b2b);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 34px;
+      color: #fff;
+      font-weight: bold;
+      margin-bottom: 16px;
+      animation: pop .5s ease;
+    }
+    @keyframes pop {
+      0% { transform: scale(0.5); opacity: 0; }
+      80% { transform: scale(1.15); opacity: 1; }
+      100% { transform: scale(1); }
+    }
+    .modal h2 {
+      margin: 0 0 10px;
+      font-size: 1.5rem;
+    }
+    .modal p {
+      margin: 0;
+      font-size: 1rem;
+      color: var(--muted);
+    }
+  </style>
+</head>
+<body>
+  <main class="card" role="main" aria-labelledby="title">
+    <div class="brand" aria-hidden="true">
+      <h1 id="title">ลงทะเบียน</h1>
+    </div>
+
+    <form id="registerForm" action="#" method="post" novalidate>
+      <!-- 1. รหัสนักศึกษา -->
+      <div class="field">
+        <label for="studentId">รหัสนักศึกษา</label>
+        <div class="input">
+          <i aria-hidden="true">🆔</i>
+          <input id="studentId" name="studentId" type="text" placeholder="นายธงธวย คงควรคอย" autocomplete="text" required />
+          <i aria-hidden="true"></i>
+        </div>
+      </div>
+
+      <!-- 2. ชื่อโครงงาน -->
+      <div class="field">
+        <label for="projectNameTh">ชื่อโครงงาน</label>
+        <div class="input">
+          <i aria-hidden="true">📘</i>
+          <input id="projectNameTh" name="projectNameTh" type="text" placeholder="ชื่อโครงงาน (ภาษาไทย)" required />
+          <i aria-hidden="true"></i>
+        </div>
+      </div>
+
+      <!-- 3. กรณีศึกษา -->
+      <div class="field">
+        <label for="caseStudy1">กรณีศึกษา</label>
+        <div class="input">
+          <i aria-hidden="true">🏷️</i>
+          <input id="caseStudy1" name="caseStudy1" type="text" placeholder="เช่น โรงงาน A / พื้นที่ศึกษา" />
+          <i aria-hidden="true"></i>
+        </div>
+      </div>
+
+      <!-- 4. ชื่อโครงงานภาษาอังกฤษ -->
+      <div class="field">
+        <label for="projectNameEn">ชื่อโครงงานภาษาอังกฤษ</label>
+        <div class="input">
+          <i aria-hidden="true">📗</i>
+          <input id="projectNameEn" name="projectNameEn" type="text" placeholder="Project Title (English)" required />
+          <i aria-hidden="true"></i>
+        </div>
+      </div>
+
+      <!-- 5. กรณีศึกษา (ตามรายการที่ให้มา มีซ้ำ จึงคงไว้เป็นช่องที่สอง) -->
+      <div class="field">
+        <label for="caseStudy2">กรณีศึกษา</label>
+        <div class="input">
+          <i aria-hidden="true">🏷️</i>
+          <input id="caseStudy2" name="caseStudy2" type="text" placeholder="กรณีศึกษาเพิ่มเติม (ถ้ามี)" />
+          <i aria-hidden="true"></i>
+        </div>
+      </div>
+
+      <!-- 6. เลือกอาจารย์ที่ปรึกษา -->
+      <div class="field">
+        <label for="advisor">เลือกอาจารย์ที่ปรึกษา</label>
+        <div class="input">
+          <i aria-hidden="true">👩‍🏫</i>
+          <select id="advisor" name="advisor" required style="background: transparent; border: 0; color: inherit; font: inherit; padding: 8px 6px; outline: none; width: 100%;">
+            <option value="" disabled selected>— เลือกอาจารย์ที่ปรึกษา —</option>
+            <option>รศ.ดร.อนิราช มิ่งขวัญ</option>
+            <option>ผศ.อรบุษป์ วุฒิกมลชัย</option>
+            <option>ผศ.ดร.บีสุดา ดาวเรือง</option>
+            <option>ผศ.ดร.ขนิษฐา นามี</option>
+            <option>อ.ดร.กาญจน ณ ศรีธะ</option>
+            <option>ผศ.นพดล บูรณ์กุศล</option>
+            <option>ผศ.จสต.นพเก้า ทองใบ</option>
+            <option>ผศ.ดร.นิติการ นาคเจือทอง</option>
+            <option>ผศ.ดร.นัฎฐพันธ์ นาคพงษ์</option>
+            <option>ผศ.นิมิต ศรีคำทา</option>
+            <option>อ.ดร.พิทย์พิมล ชูรอด</option>
+            <option>ผศ.ดร.พาฝัน ดวงไพศาล</option>
+            <option>อ.ดร.ประดิษฐ์ พิทักษ์เสถียรกุล</option>
+            <option>ผศ.พีระศักดิ์ เสรีกุล</option>
+            <option>ผศ.สมชัย เชียงพงศ์พันธุ์</option>
+            <option>ผศ.ดร.สุปีติ กุลจันทร์</option>
+            <option>ผศ.สิวาลัย จินเจือ</option>
+            <option>ผศ.ดร.สุพาภรณ์ ซิ้มเจริญ</option>
+            <option>ผศ.ดร.ศรายุทธ ธเนศสกุลวัฒนา</option>
+            <option>อ.ดร.ศิรินทรา แว่วศรี</option>
+            <option>อ.ดร.วัชรชัย คงศิริวัฒนา</option>
+            <option>ผศ.ดร.วันทนี ประจวบศุภกิจ</option>
+            <option>รศ.ดร.ยุพิน สรรพคุณ</option>
+          </select>
+          <i aria-hidden="true">▾</i>
+        </div>
+      </div>
+
+      <!-- 7. เบอร์โทรศัพท์ -->
+      <div class="field">
+        <label for="phone">เบอร์โทรศัพท์</label>
+        <div class="input">
+          <i aria-hidden="true">📞</i>
+          <input id="phone" name="phone" type="tel" placeholder="ตัวอย่าง: 08x-xxx-xxxx" required />
+          <i aria-hidden="true"></i>
+        </div>
+      </div>
+
+      <!-- 8. อีเมลผู้จัดทำ -->
+      <div class="field">
+        <label for="email">อีเมลผู้จัดทำ</label>
+        <div class="input">
+          <i aria-hidden="true">📧</i>
+          <input id="email" name="email" type="email" placeholder="name@example.com" autocomplete="email" required />
+          <i aria-hidden="true"></i>
+        </div>
+      </div>
+
+      <!-- 9. ที่อยู่ผู้จัด -->
+      <div class="field">
+        <label for="address">ที่อยู่ผู้จัด</label>
+        <div class="input">
+          <i aria-hidden="true">🏠</i>
+          <input id="address" name="address" type="text" placeholder="บ้านเลขที่ / ตำบล / อำเภอ / จังหวัด / รหัสไปรษณีย์" />
+          <i aria-hidden="true"></i>
+        </div>
+      </div>
+
+      <!-- 10. รหัสผ่านเข้าสู่ระบบ -->
+      <div class="field">
+        <label for="password">รหัสผ่านเข้าสู่ระบบ</label>
+        <div class="input">
+          <i aria-hidden="true">🔒</i>
+          <input id="password" name="password" type="password" placeholder="อย่างน้อย 8 ตัวอักษร" autocomplete="new-password" required />
+          <i aria-hidden="true">• • •</i>
+        </div>
+      </div>
+
+      <!-- 11. ยืนยันรหัสผ่าน -->
+      <div class="field">
+        <label for="confirmPassword">ยืนยันรหัสผ่าน</label>
+        <div class="input">
+          <i aria-hidden="true">✅</i>
+          <input id="confirmPassword" name="confirmPassword" type="password" placeholder="พิมพ์รหัสผ่านอีกครั้ง" autocomplete="new-password" required />
+          <i aria-hidden="true">• • •</i>
+        </div>
+      </div>
+
+      <!-- ปุ่มการทำงาน -->
+      <div class="actions" style="gap: 10px;">
+        <button class="btn" type="submit">ลงทะเบียน</button>
+        <button class="btn btn-alt" type="reset" style="flex:1;">ล้างข้อมูล</button>
+      </div>
+
+      <p class="footer">
+        มีบัญชีอยู่แล้ว? <a class="link" href="Login.html">กลับไปหน้าเข้าสู่ระบบ</a>
+      </p>
+
+      <!-- <p class="sr-only" aria-live="polite">นี่เป็นเพียงหน้าเดโม่เพื่อการนำเสนอเท่านั้น แบบฟอร์มนี้จะไม่ทำการส่งข้อมูลจริง</p> -->
+    </form>
+  </main>
+
+  <!-- Popup -->
+  <div class="overlay" id="successPopup">
+    <div class="modal">
+      <div class="checkmark">✔</div>
+      <h2>ลงทะเบียนเสร็จสิ้น</h2>
+      <p>ระบบจะพาคุณไปที่หน้า Login</p>
+    </div>
+  </div>
+
+  <script>
+    const form = document.getElementById('registerForm');
+    const popup = document.getElementById('successPopup');
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault(); // ป้องกันการ reload จริง
+      popup.classList.add('active');
+
+      // แสดง popup 2.5 วินาที แล้วไปหน้า Login.html
+      setTimeout(() => {
+        window.location.href = "Login.html";
+      }, 1500);
+    });
+  </script>
+</body>
+</html>

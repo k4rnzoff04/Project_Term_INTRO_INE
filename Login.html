@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="th">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Login</title>
+
+  <!-- ลิงก์ไปยังไฟล์สไตล์ -->
+  <link rel="stylesheet" href="css/myCss.css" />
+
+  <style>
+    /* ===== Overlay Pop-up ===== */
+    .overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.6);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity .35s ease;
+      z-index: 1000;
+    }
+    .overlay.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    /* ===== Modal ===== */
+    .modal {
+      background: var(--bg-card);
+      border: 1px solid var(--stroke);
+      border-radius: 20px;
+      padding: 30px 40px;
+      text-align: center;
+      color: var(--text);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+      transform: scale(0.8) translateY(40px);
+      opacity: 0;
+      transition: all .45s cubic-bezier(.175,.885,.32,1.275);
+    }
+    .overlay.active .modal {
+      transform: scale(1) translateY(0);
+      opacity: 1;
+    }
+
+    /* ===== Animation Icon ===== */
+    .checkmark {
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      display: inline-block;
+      position: relative;
+      background: linear-gradient(135deg, #ff944d, #ff4b2b);
+      margin-bottom: 16px;
+      animation: pop .5s ease;
+    }
+    .checkmark::after {
+      content: "✔";
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 34px;
+      color: #fff;
+      font-weight: bold;
+    }
+    @keyframes pop {
+      0% { transform: scale(0.5); opacity: 0; }
+      80% { transform: scale(1.15); opacity: 1; }
+      100% { transform: scale(1); }
+    }
+
+    .modal h2 {
+      margin: 0 0 10px;
+      font-size: 1.5rem;
+    }
+    .modal p {
+      margin: 0;
+      font-size: 1rem;
+      color: var(--muted);
+    }
+  </style>
+</head>
+<body>
+  <main class="card" role="main" aria-labelledby="title">
+    <div class="brand" aria-hidden="true">
+      <h1 id="title">เข้าสู่ระบบ</h1>
+    </div>
+
+    <form id="loginForm" action="#" method="post" novalidate>
+      <!-- Email -->
+      <div class="field">
+        <label for="email">อีเมล</label>
+        <div class="input">
+          <i aria-hidden="true">📧</i>
+          <input id="email" name="email" type="email" placeholder="name@example.com" autocomplete="email" required />
+          <i aria-hidden="true"> </i>
+        </div>
+      </div>
+
+      <!-- Password -->
+      <div class="field">
+        <label for="password">รหัสผ่าน</label>
+        <div class="input">
+          <i aria-hidden="true">🔒</i>
+          <input id="password" name="password" type="password" placeholder="อย่างน้อย 8 ตัวอักษร" autocomplete="current-password" required />
+          <i aria-hidden="true">• • •</i>
+        </div>
+      </div>
+
+      <div class="actions">
+        <label class="checkbox">
+          <input type="checkbox" name="remember" />
+          จดจำฉันไว้ในระบบ
+        </label>
+        <a class="link" href="#" onclick="return false;">ลืมรหัสผ่าน?</a>
+        <button class="btn" type="submit" aria-label="Sign in">
+        เข้าสู่ระบบ
+        </button>
+      </div>
+      <p class="footer">ยังไม่มีบัญชีใช่ไหม? 
+        <a class="link" href="Register.html">สร้างบัญชีใหม่</a>
+      </p>
+    </form>
+  </main>
+
+  <!-- Pop-up Modal -->
+  <div class="overlay" id="successPopup">
+    <div class="modal">
+      <div class="checkmark"></div>
+      <h2>Login เสร็จสิ้น</h2>
+      <p>ยินดีต้อนรับกลับมา 🎉</p>
+    </div>
+  </div>
+
+  <script>
+    const form = document.getElementById('loginForm');
+    const popup = document.getElementById('successPopup');
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault(); // ป้องกันไม่ให้ reload
+      popup.classList.add('active');
+
+      // ซ่อน popup อัตโนมัติหลัง 3 วินาที
+      setTimeout(() => {
+        window.location.href = "indexStd.html";
+      }, 1500);
+    });
+  </script>
+</body>
+</html>
