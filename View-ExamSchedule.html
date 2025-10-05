@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ดูตารางสอบโครงงานพิเศษ</title>
+  <link rel="stylesheet" href="css/mystyle.css" />
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="header-info">
+      <h1 class="header-title">ระบบการจัดการข้อมูลโครงงานพิเศษ และโครงงานสหกิจ</h1>
+    </div>
+  </header>
+
+  <!-- Navbar -->
+  <nav>
+    <ul>
+      <li><a href="https://www.kmutnb.ac.th/">KMUTNB</a></li>
+      <li><a href="http://202.44.47.45/fitm/">FITM</a></li>
+      <li><a href="http://202.44.47.45/fitm/departments/IT">IT DEPT</a></li>
+    </ul>
+  </nav>
+
+  <div class="container">
+    <!-- Aside -->
+    <aside>
+      <div class="main-Index"><a href="index.html">หน้าหลัก</a></div>
+      <!-- <div class="Send-Progress"><a href="#">ส่งความคืบหน้า</a></div>
+      <div class="view-Progress"><a href="View-Progress.html">ดูความคืบหน้า</a></div> -->
+      <div class="view-schedule-test-project"><a href="View-ExamSchedule.html">ดูตารางสอบโครงงานพิเศษ</a></div>
+      <div class="view-list-project"><a href="View-ProjectList.html">ดูรายชื่อโครงงานพิเศษ</a></div>
+      <div class="Logout-acc"><a href="index.html">ออกจากระบบ</a></div>
+    </aside>
+
+    <!-- Main -->
+    <div class="main-content">
+      <article>
+        <div class="container-article" role="region" aria-labelledby="exam-title">
+          <div class="main-content-article">
+            <h2 id="exam-title">ตารางสอบโครงงานพิเศษ</h2>
+          </div>
+
+          <div class="sub-content-article" style="margin-right:1rem;">
+            <!-- ตัวกรองเล็กน้อย (ทางเลือก) -->
+            <div class="filter-row" aria-label="แถบค้นหา">
+              <input id="q" type="text" placeholder="ค้นหา ชื่อโครงงาน / รหัสโครงงาน / สถานะ" />
+              <button class="btn-small" id="btnClear">ล้าง</button>
+            </div>
+
+            <!-- ตาราง -->
+            <div class="table-scroll">
+              <table class="admin-table" aria-describedby="exam-caption" id="exam-table">
+                <caption id="exam-caption" class="sr-only">ตารางสอบโครงงานพิเศษ</caption>
+                <thead>
+                  <tr>
+                    <th style="width:110px;">วันที่สอบ</th>
+                    <th style="width:90px;">เวลา</th>
+                    <th style="width:120px;">ห้อง/สถานที่</th>
+                    <th style="width:110px;">รหัสโครงงาน</th>
+                    <th>ชื่อโครงงาน</th>
+                    <th style="width:120px;">ประธาน</th>
+                    <th style="width:120px;">กรรมการ</th>
+                    <th style="width:110px;">สถานะ</th>
+                    <th style="width:120px;">จัดการ</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <!-- แถวข้อมูลตัวอย่าง #1 -->
+                  <tr>
+                    <td class="center">25/09/68</td>
+                    <td class="center">09:00</td>
+                    <td class="center">FITM-301</td>
+                    <td class="center">6810001</td>
+                    <td>หุ่นยนต์ตรวจสอบความสมบูรณ์ของป่าชายเลน</td>
+                    <td class="center">ผศ.ดร.พาฝัน ดวงไพศาล</td>
+                    <td>
+                      กก.1: ผศ.ดร.นิติการ นาคเจือทอง<br/>
+                      กก.2: ผศ.นิมิต ศรีคำทา<br/>
+                      กก.3 (ที่ปรึกษา): ผศ.ดร.สุพาภรณ์ ซิ้มเจริญ
+                    </td>
+                    <td class="center"><span class="status-badge status-percent">ยืนยันแล้ว</span></td>
+                    <td class="center">
+                      <button type="button"
+                              class="btn-small exam-view"
+                              data-date="25/09/68"
+                              data-time="09:00"
+                              data-room="FITM-301"
+                              data-code="6810001"
+                              data-title-th="หุ่นยนต์ตรวจสอบความสมบูรณ์ของป่าชายเลน"
+                              data-student-id="6806022511129"
+                              data-student-name="พีรกานต์ ไกรพินิจ"
+                              data-chair="ผศ.ดร.พาฝัน ดวงไพศาล"
+                              data-c1="ผศ.ดร.นิติการ นาคเจือทอง"
+                              data-c2="ผศ.นิมิต ศรีคำทา"
+                              data-advisor="ผศ.ดร.สุพาภรณ์ ซิ้มเจริญ"
+                              data-status="ยืนยันแล้ว">
+                        ดูรายละเอียด
+                      </button>
+                    </td>
+                  </tr>
+
+                  <!-- แถวข้อมูลตัวอย่าง #2 -->
+                  <tr>
+                    <td class="center">26/09/68</td>
+                    <td class="center">13:30</td>
+                    <td class="center">FITM-302</td>
+                    <td class="center">6810002</td>
+                    <td>ระบบติดตามคุณภาพน้ำในป่าชายเลน</td>
+                    <td class="center">รศ.ดร.อนิราช มิ่งขวัญ</td>
+                    <td>
+                      กก.1: ผศ.พีระศักดิ์ เสรีกุล<br/>
+                      กก.2: อ.ดร.พิทย์พิมล ชูรอด<br/>
+                      กก.3 (ที่ปรึกษา): อ.ดร.ศิรินทรา แว่วศรี
+                    </td>
+                    <td class="center"><span class="status-badge status-percent">ยืนยันแล้ว</span></td>
+                    <td class="center">
+                      <button type="button"
+                              class="btn-small exam-view"
+                              data-date="26/09/68"
+                              data-time="13:30"
+                              data-room="FITM-302"
+                              data-code="6810002"
+                              data-title-th="ระบบติดตามคุณภาพน้ำในป่าชายเลน"
+                              data-student-id="6806022511101"
+                              data-student-name="สมชาย ใจดี"
+                              data-chair="รศ.ดร.อนิราช มิ่งขวัญ"
+                              data-c1="ผศ.พีระศักดิ์ เสรีกุล"
+                              data-c2="อ.ดร.พิทย์พิมล ชูรอด"
+                              data-advisor="อ.ดร.ศิรินทรา แว่วศรี"
+                              data-status="ยืนยันแล้ว">
+                        ดูรายละเอียด
+                      </button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="Footer">
+      <div class="Footer-img-logo"><img src="img/fitm-logo-2.png" alt="Logo" /></div>
+      <div class="text-center-footer">
+        <p>มหาวิทยาลัยเทคโนโลยีพระจอมเกล้าพระนครเหนือ วิทยาเขตปราจีนบุรี</p>
+        <p>คณะเทคโนโลยีและการจัดการอุตสาหกรรม</p>
+        <p>129 หมู่ 21 ตำบลเนินหอม อำเภอเมือง จังหวัดปราจีนบุรี 25230</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===== Popup: รายละเอียดนัดสอบ ===== -->
+  <div class="modal-backdrop" id="exam-detail-backdrop" aria-hidden="true">
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="exam-detail-title" aria-describedby="exam-detail-desc">
+      <div class="modal-header">
+        <h3 id="exam-detail-title">รายละเอียดการนัดสอบ</h3>
+        <button class="modal-close" id="exam-detail-close" aria-label="ปิดหน้าต่าง">&times;</button>
+      </div>
+      <div class="modal-body" id="exam-detail-desc">
+        <div class="detail-grid" id="exam-detail-grid">
+          <!-- เติมด้วย JS -->
+        </div>
+        <div class="modal-actions">
+          <button type="button" class="modal-button" id="exam-detail-ok">ปิดหน้าต่าง</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+  // ค้นหา/กรองตารางแบบง่าย ๆ
+  (function(){
+    const q = document.getElementById('q');
+    const clear = document.getElementById('btnClear');
+    const rows = Array.from(document.querySelectorAll('#exam-table tbody tr'));
+    function filter(){
+      const v = (q.value || '').toLowerCase().trim();
+      rows.forEach(tr=>{
+        const txt = tr.innerText.toLowerCase();
+        tr.style.display = txt.includes(v) ? '' : 'none';
+      });
+    }
+    q?.addEventListener('input', filter);
+    clear?.addEventListener('click', ()=>{ q.value=''; filter(); q.focus(); });
+  })();
+
+  // โมดอลรายละเอียด
+  (function(){
+    const backdrop = document.getElementById('exam-detail-backdrop');
+    const closeBtn = document.getElementById('exam-detail-close');
+    const okBtn = document.getElementById('exam-detail-ok');
+    const grid = document.getElementById('exam-detail-grid');
+    let lastFocus = null;
+
+    function openModal(){
+      backdrop.classList.add('is-open');
+      backdrop.removeAttribute('aria-hidden');
+      document.body.style.overflow='hidden';
+      okBtn?.focus();
+    }
+    function closeModal(){
+      backdrop.classList.remove('is-open');
+      backdrop.setAttribute('aria-hidden','true');
+      document.body.style.overflow='';
+      lastFocus?.focus?.();
+    }
+    function row(label, value){
+      return `
+        <div class="detail-row">
+          <div class="detail-label">${label}</div>
+          <div class="detail-value">${value || '-'}</div>
+        </div>
+      `;
+    }
+
+    document.querySelectorAll('.exam-view').forEach(btn=>{
+      btn.addEventListener('click', ()=>{
+        lastFocus = document.activeElement;
+
+        const d = btn.dataset;
+        grid.innerHTML = `
+          ${row('รหัสโครงงาน', d.code)}
+          ${row('ชื่อโครงงาน', d.titleTh)}
+          ${row('ผู้จัดทำ', d.studentName)}
+          ${row('วันที่สอบ', d.date)}
+          ${row('เวลา', d.time)}
+          ${row('ห้อง/สถานที่', d.room)}
+          ${row('ประธานกรรมการ', d.chair)}
+          ${row('กรรมการสอบ 1', d.c1)}
+          ${row('กรรมการสอบ 2', d.c2)}
+          ${row('อาจารย์ที่ปรึกษา (กรรมการ 3)', d.advisor)}
+          ${row('สถานะ', d.status)}
+        `;
+        openModal();
+      });
+    });
+
+    backdrop.addEventListener('click', (e)=>{ if(e.target===backdrop) closeModal(); });
+    closeBtn.addEventListener('click', closeModal);
+    okBtn.addEventListener('click', closeModal);
+    document.addEventListener('keydown',(e)=>{
+      if(backdrop.classList.contains('is-open') && e.key==='Escape') closeModal();
+    });
+  })();
+  </script>
+</body>
+</html>

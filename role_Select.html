@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>เลือกบทบาทการเข้าสู่ระบบ</title>
+
+  <!-- ใช้สไตล์จาก myCss.css -->
+  <link rel="stylesheet" href="css/myCss.css" />
+</head>
+<body class="role-select">
+  <main class="role-card">
+    <h1>เลือกบทบาทเพื่อเข้าสู่ระบบ</h1>
+
+    <div class="role-options">
+      <button class="role-btn" onclick="goLogin('student')">👨‍🎓 นักศึกษา</button>
+      <button class="role-btn" onclick="goLogin('staff')">🧑‍💼 เจ้าหน้าที่ / พนักงาน</button>
+      <button class="role-btn" onclick="goLogin('advisor')">👩‍🏫 อาจารย์ที่ปรึกษา</button>
+    </div>
+
+    <p class="role-footer">ระบบจัดการโครงงานพิเศษและสหกิจศึกษา</p>
+  </main>
+
+  <script>
+    // ฟังก์ชันเปลี่ยนหน้า Login ตาม Role
+    function goLogin(role) {
+      let targetPage = "";
+
+      switch (role) {
+        case "student":
+          targetPage = "LoginStd.html";
+          break;
+        case "staff":
+          targetPage = "LoginOfficer.html";
+          break;
+        case "advisor":
+          targetPage = "LoginTeacher.html";
+          break;
+        default:
+          targetPage = "Login.html";
+      }
+
+      // เก็บข้อมูล Role (เผื่อใช้ต่อในระบบ)
+      localStorage.setItem("selectedRole", role);
+
+      // เปลี่ยนหน้า
+      window.location.href = targetPage;
+    }
+  </script>
+</body>
+</html>

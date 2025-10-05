@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>รายละเอียดโครงงานพิเศษ</title>
+  <!-- ใช้สไตล์ชุดเดียวกับหน้า Home -->
+  <link rel="stylesheet" href="css/mystyle.css" />
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="header-info">
+      <h1 class="header-title">ระบบการจัดการข้อมูลโครงงานพิเศษ และโครงงานสหกิจ</h1>
+    </div>
+  </header>
+
+  <!-- Navbar -->
+  <nav>
+    <ul>
+      <li><a href="https://www.kmutnb.ac.th/">KMUTNB</a></li>
+      <li><a href="http://202.44.47.45/fitm/">FITM</a></li>
+      <li><a href="http://202.44.47.45/fitm/departments/IT">IT DEPT</a></li>
+    </ul>
+  </nav>
+
+  <div class="container">
+    <!-- Aside -->
+    <aside>
+      <!-- <div class="Login">
+        <a href="Login.html">เข้าสู่ระบบ</a>
+      </div> -->
+      <!-- <div class="Register-Project-System">
+        <a href="#">ยื่นสอบ</a>
+      </div> -->
+      <div class="main-Index">
+        <a href="indexOfficer.html">หน้าหลัก</a>
+      </div>
+      <!-- <div class="Send-Progress">
+        <a href="#">ส่งความคืบหน้า</a>
+      </div> -->
+      <!-- <div class="view-Progress">
+        <a href="View-Progress.html">ดูความคืบหน้า</a>
+      </div> -->
+      <div class="view-schedule-test-project">
+        <a href="View-ExamSchedule.html">ดูตารางสอบโครงงานพิเศษ</a>
+      </div>
+      <div class="view-list-project">
+        <a href="View-ProjectList.html">ดูรายชื่อโครงงานพิเศษ</a>
+      </div>
+      <div class="Logout-acc">
+        <a href="index.html">ออกจากระบบ</a>
+      </div>
+    </aside>
+
+    <!-- Main -->
+    <div class="main-content">
+      <article>
+        <div class="container-article" role="region" aria-labelledby="project-title">
+          <div class="main-content-article">
+            <h2 id="project-title">รายละเอียดโครงงานของนักศึกษา</h2>
+          </div>
+
+          <div class="sub-content-article" style="margin-right:1rem;">
+
+            <!-- หัวข้อย่อยสำหรับเจ้าหน้าที่/พนักงาน -->
+            <h3 class="section-title">รายการยื่นสอบโครงงานพิเศษ (สำหรับเจ้าหน้าที่)</h3>
+
+            <!-- ตารางรายการยื่นสอบ -->
+            <div class="table-scroll">
+              <table class="admin-table" aria-describedby="table-caption">
+                <caption id="table-caption" class="sr-only">ตารางดูรายละเอียดการยื่นสอบโครงงานพิเศษของนักศึกษา</caption>
+                <thead>
+                  <tr>
+                    <th style="width:140px;">วันที่ยื่นสอบ</th>
+                    <th>ชื่อโครงงาน</th>
+                    <th>รายละเอียดโครงงาน (พอสังเขป)</th>
+                    <th style="width:140px;">จัดการ</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <!-- ตัวอย่างแถวข้อมูล #1 -->
+                  <tr>
+                    <td class="center">01/08/68</td>
+                    <td>หุ่นยนต์ตรวจสอบความสมบูรณ์ของป่าชายเลน</td>
+                    <td>พัฒนาหุ่นยนต์และบอดี้บอยสำหรับตรวจคุณภาพป่าชายเลน พร้อมระบบบันทึกข้อมูล</td>
+                    <td class="center">
+                      <button
+                        type="button"
+                        class="btn-small view-detail"
+                        data-code="6810001"
+                        data-title-th="หุ่นยนต์ตรวจสอบความสมบูรณ์ของป่าชายเลน"
+                        data-title-en="Monitoring Buoys in Mangrove Forests"
+                        data-student-id="6806022511129"
+                        data-student-name="พีรกานต์ ไกรพินิจ"
+                        data-advisor="ผศ.ดร.สุพาภรณ์ ซิ้มเจริญ"
+                        data-email="s6806022511129@email.kmutnb.ac.th">
+                        ดูรายละเอียด
+                      </button>
+                    </td>
+                  </tr>
+
+                  <!-- ตัวอย่างแถวข้อมูล #2 (เผื่ออนาคต) -->
+                  <tr>
+                    <td class="center">15/08/68</td>
+                    <td>ระบบติดตามคุณภาพน้ำในป่าชายเลน</td>
+                    <td>ออกแบบเซ็นเซอร์ตรวจวัดค่า DO/EC/Temp และแดชบอร์ดสรุปผล</td>
+                    <td class="center">
+                      <button
+                        type="button"
+                        class="btn-small view-detail"
+                        data-code="6810002"
+                        data-title-th="ระบบติดตามคุณภาพน้ำในป่าชายเลน"
+                        data-title-en="Water Quality Monitoring in Mangrove"
+                        data-student-id="6806022511101"
+                        data-student-name="สมชาย ใจดี"
+                        data-advisor="อ.ดร.สุรีย์ ไตรภพ"
+                        data-email="s6806022511101@email.kmutnb.ac.th">
+                        ดูรายละเอียด
+                      </button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="Footer">
+      <div class="Footer-img-logo">
+        <img src="img/fitm-logo-2.png" alt="Logo" />
+      </div>
+      <div class="text-center-footer">
+        <p>มหาวิทยาลัยเทคโนโลยีพระจอมเกล้าพระนครเหนือ วิทยาเขตปราจีนบุรี</p>
+        <p>คณะเทคโนโลยีและการจัดการอุตสาหกรรม</p>
+        <p>129 หมู่ 21 ตำบลเนินหอม อำเภอเมือง จังหวัดปราจีนบุรี 25230</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===== Popup: รายละเอียดโครงงาน ===== -->
+<div class="modal-backdrop" id="project-detail-backdrop" aria-hidden="true">
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="pd-title" aria-describedby="pd-desc">
+    <div class="modal-header">
+      <h3 id="pd-title">รายละเอียดโครงงาน</h3>
+      <button class="modal-close" id="pd-close" aria-label="ปิดหน้าต่าง">&times;</button>
+    </div>
+
+    <div class="modal-body" id="pd-desc">
+      <div class="detail-grid">
+        <div class="detail-row"><span class="detail-label">รหัสโครงงาน</span><span id="pd-code" class="detail-value">-</span></div>
+        <div class="detail-row"><span class="detail-label">ชื่อโครงงาน</span><span id="pd-title-th" class="detail-value">-</span></div>
+        <div class="detail-row"><span class="detail-label">ชื่อโครงงาน (อังกฤษ)</span><span id="pd-title-en" class="detail-value">-</span></div>
+        <div class="detail-row"><span class="detail-label">รหัสนักศึกษา</span><span id="pd-student-id" class="detail-value">-</span></div>
+        <div class="detail-row"><span class="detail-label">ชื่อผู้จัดทำ</span><span id="pd-student-name" class="detail-value">-</span></div>
+        <div class="detail-row"><span class="detail-label">อาจารย์ที่ปรึกษา</span><span id="pd-advisor" class="detail-value">-</span></div>
+        <div class="detail-row"><span class="detail-label">อีเมลผู้จัดทำ</span><span id="pd-email" class="detail-value">-</span></div>
+      </div>
+
+      <div class="modal-actions">
+        <button type="button" class="modal-button btn-approve" id="pd-approve">
+          อนุมัติ/นัดสอบ
+        </button>
+        <button type="button" class="modal-button" id="pd-ok">ปิดหน้าต่าง</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== Popup: อนุมัติ/นัดสอบ ===== -->
+<div class="modal-backdrop" id="approve-backdrop" aria-hidden="true">
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="ap-title" aria-describedby="ap-desc">
+    <div class="modal-header">
+      <h3 id="ap-title">อนุมัติการยื่นสอบ / นัดสอบ</h3>
+      <button class="modal-close" id="ap-close" aria-label="ปิดหน้าต่าง">&times;</button>
+    </div>
+
+    <div class="modal-body" id="ap-desc">
+      <!-- ฟอร์มนัดสอบ -->
+      <form id="approve-form" novalidate>
+        <div class="form-row">
+          <label>รหัสโครงงาน</label>
+          <input type="text" id="ap-code" readonly />
+        </div>
+
+        <div class="form-row">
+          <label for="ap-date">วันที่สอบ</label>
+          <input type="date" id="ap-date" required />
+          <small class="hint">เลือกวันสอบ (ภายในอนาคต)</small>
+        </div>
+
+        <div class="form-row">
+          <label for="ap-time">เวลาสอบ</label>
+          <input type="time" id="ap-time" required />
+        </div>
+
+        <div class="form-row">
+          <label for="ap-chair">ประธานกรรมการ</label>
+          <select id="ap-chair" required>
+            <option value="">— เลือกประธานกรรมการ —</option>
+          </select>
+        </div>
+
+        <div class="form-row">
+          <label for="ap-com1">กรรมการสอบ คนที่ 1</label>
+          <select id="ap-com1" required>
+            <option value="">— เลือกกรรมการ —</option>
+          </select>
+        </div>
+
+        <div class="form-row">
+          <label for="ap-com2">กรรมการสอบ คนที่ 2</label>
+          <select id="ap-com2" required>
+            <option value="">— เลือกกรรมการ —</option>
+          </select>
+        </div>
+
+        <div class="form-row">
+          <label for="ap-advisor">กรรมการสอบ คนที่ 3 (อาจารย์ที่ปรึกษา)</label>
+          <input type="text" id="ap-advisor" readonly />
+          <small class="hint">รายชื่อนี้ถูกกำหนดเป็นอาจารย์ที่ปรึกษาโดยอัตโนมัติ</small>
+        </div>
+
+        <div class="modal-actions">
+          <button type="submit" class="modal-button" id="ap-submit">บันทึกนัดสอบ</button>
+          <button type="button" class="modal-button" id="ap-cancel">ยกเลิก</button>
+        </div>
+      </form>
+
+      
+    </div>
+  </div>
+</div>
+
+<!-- ===== Popup: บันทึกการนัดสอบสำเร็จ (แยกออกต่างหาก) ===== -->
+<div class="modal-backdrop" id="approve-success-backdrop" aria-hidden="true">
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="aps-title" aria-describedby="aps-desc">
+    <div class="modal-header">
+      <h3 id="aps-title">บันทึกการนัดสอบสำเร็จ</h3>
+      <button class="modal-close" id="aps-close" aria-label="ปิดหน้าต่าง">&times;</button>
+    </div>
+
+    <div class="modal-body" id="aps-desc">
+      <div class="success-pane" style="padding-top:0;">
+        <div class="success-icon" aria-hidden="true">✔</div>
+        <h3 class="success-title">ระบบบันทึกข้อมูลเรียบร้อย</h3>
+        <p class="success-text">สร้างกำหนดวันสอบและคณะกรรมการสอบแล้ว</p>
+      </div>
+
+      <!-- สรุปข้อมูลที่เพิ่งบันทึก -->
+      <div class="detail-grid" style="margin-top:8px;">
+        <div class="detail-row"><span class="detail-label">รหัสโครงงาน</span> <span id="aps-code" class="detail-value">-</span></div>
+        <div class="detail-row"><span class="detail-label">วันที่สอบ</span>     <span id="aps-date" class="detail-value">-</span></div>
+        <div class="detail-row"><span class="detail-label">เวลา</span>         <span id="aps-time" class="detail-value">-</span></div>
+        <div class="detail-row"><span class="detail-label">ประธาน</span>      <span id="aps-chair" class="detail-value">-</span></div>
+        <div class="detail-row"><span class="detail-label">กรรมการคนที่ 1</span>   <span id="aps-com1" class="detail-value">-</span></div>
+        <div class="detail-row"><span class="detail-label">กรรมการคนที่ 2</span>   <span id="aps-com2" class="detail-value">-</span></div>
+        <div class="detail-row"><span class="detail-label">กรรมการคนที่ 3</span> <span id="aps-advisor" class="detail-value">-</span></div>
+      </div>
+
+      <div class="modal-actions">
+        <button type="button" class="modal-button" id="aps-ok">ปิดหน้าต่าง</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<script>
+(function(){
+  // ปุ่มทั้งหมดที่ใช้เปิดรายละเอียด (อ่านค่าจาก data-*)
+  const buttons = document.querySelectorAll('.view-detail');
+
+  // องค์ประกอบของป็อปอัพรายละเอียด
+  const backdrop = document.getElementById('project-detail-backdrop');
+  const closeBtn = document.getElementById('pd-close');
+  const okBtn    = document.getElementById('pd-ok');
+
+  // ช่องที่จะแสดงค่า
+  const el = {
+    code:        document.getElementById('pd-code'),
+    titleTh:     document.getElementById('pd-title-th'),
+    titleEn:     document.getElementById('pd-title-en'),
+    studentId:   document.getElementById('pd-student-id'),
+    studentName: document.getElementById('pd-student-name'),
+    advisor:     document.getElementById('pd-advisor'),
+    email:       document.getElementById('pd-email')
+  };
+
+  if (!backdrop || !closeBtn || !okBtn) return;
+
+  let lastFocused = null;
+
+  function fillDetail(btn){
+    el.code.textContent        = btn.dataset.code || '-';
+    el.titleTh.textContent     = btn.dataset.titleTh || '-';
+    el.titleEn.textContent     = btn.dataset.titleEn || '-';
+    el.studentId.textContent   = btn.dataset.studentId || '-';
+    el.studentName.textContent = btn.dataset.studentName || '-';
+    el.advisor.textContent     = btn.dataset.advisor || '-';
+    el.email.textContent       = btn.dataset.email || '-';
+  }
+
+  function openModal(){
+    backdrop.classList.add('is-open');
+    backdrop.removeAttribute('aria-hidden');
+    document.body.style.overflow = 'hidden';
+    okBtn.focus();
+  }
+  function closeModal(){
+    backdrop.classList.remove('is-open');
+    backdrop.setAttribute('aria-hidden','true');
+    document.body.style.overflow = '';
+    if (lastFocused && typeof lastFocused.focus === 'function') lastFocused.focus();
+  }
+
+  buttons.forEach(btn=>{
+    btn.addEventListener('click', ()=>{
+      lastFocused = document.activeElement;
+      fillDetail(btn);
+      openModal();
+    });
+  });
+
+  closeBtn.addEventListener('click', closeModal);
+  okBtn.addEventListener('click', closeModal);
+  backdrop.addEventListener('click', e => { if (e.target === backdrop) closeModal(); });
+  document.addEventListener('keydown', e => {
+    if (backdrop.classList.contains('is-open') && e.key === 'Escape') closeModal();
+  });
+})();
+</script>
+
+<script>
+/* ===========================================================
+   นัดสอบ (Approve) + หน้าต่างยืนยันสำเร็จ (Success) — แบบแยก Popup
+   เงื่อนไข: ใน DOM ต้องมี element/ID เหล่านี้
+   - ปุ่มเปิดจาก popup รายละเอียด:      #pd-approve
+   - ข้อมูลอ้างอิงใน popup รายละเอียด:   #pd-code, #pd-advisor (อ่านค่ามาเติม)
+   - โมดอลนัดสอบ:                        #approve-backdrop
+     * ปุ่ม: #ap-close, #ap-cancel, ฟอร์ม: #approve-form
+     * ฟิลด์: #ap-code, #ap-date, #ap-time, #ap-chair, #ap-com1, #ap-com2, #ap-advisor
+   - โมดอลสำเร็จ:                        #approve-success-backdrop
+     * ปุ่ม: #aps-close, #aps-ok
+     * ช่องสรุป: #aps-code, #aps-date, #aps-time, #aps-chair, #aps-com1, #aps-com2, #aps-advisor
+   =========================================================== */
+(function () {
+  "use strict";
+
+  /* ---------- Utils ---------- */
+  const todayISO = () => {
+    const d = new Date();
+    return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,"0")}-${String(d.getDate()).padStart(2,"0")}`;
+  };
+
+  // รายชื่ออาจารย์ (ตัวอย่าง) — เปลี่ยนเป็นการโหลดจาก API ได้
+  const TEACHERS = [
+    "รศ.ดร.อนิราช มิ่งขวัญ",
+    "ผศ.อรบุษป์ วุฒิกมลชัย",
+    "ผศ.ดร.บีสุดา ดาวเรือง",
+    "ผศ.ดร.ขนิษฐา นามี",
+    "อ.ดร.กาญจน ณ ศรีธะ",
+    "ผศ.นพดล บูรณ์กุศล",
+    "ผศ.จสต.นพเก้า ทองใบ",
+    "ผศ.ดร.นิติการ นาคเจือทอง",
+    "ผศ.ดร.นัฎฐพันธ์ นาคพงษ์",
+    "ผศ.นิมิต ศรีคำทา",
+    "อ.ดร.พิทย์พิมล ชูรอด",
+    "ผศ.ดร.พาฝัน ดวงไพศาล",
+    "อ.ดร.ประดิษฐ์ พิทักษ์เสถียรกุล",
+    "ผศ.พีระศักดิ์ เสรีกุล",
+    "ผศ.สมชัย เชียงพงศ์พันธุ์",
+    "ผศ.ดร.สุปีติ กุลจันทร์",
+    "ผศ.สิวาลัย จินเจือ",
+    "ผศ.ดร.สุพาภรณ์ ซิ้มเจริญ",
+    "ผศ.ดร.ศรายุทธ ธเนศสกุลวัฒนา",
+    "อ.ดร.ศิรินทรา แว่วศรี",
+    "อ.ดร.วัชรชัย คงศิริวัฒนา",
+    "ผศ.ดร.วันทนี ประจวบศุภกิจ",
+    "รศ.ดร.ยุพิน สรรพคุณ"
+  ];
+
+  /* ---------- จาก popup รายละเอียดโครงงาน ---------- */
+  // ปุ่ม “อนุมัติ/นัดสอบ” + ข้อมูลที่ต้องอ่านมา
+  const openApproveBtn = document.getElementById("pd-approve");
+  const detailCodeEl   = document.getElementById("pd-code");     // textContent = รหัสโครงงาน
+  const detailAdvisorEl= document.getElementById("pd-advisor");  // textContent = ชื่ออ.ที่ปรึกษา
+
+  /* ---------- โมดอลนัดสอบ ---------- */
+  const apBackdrop = document.getElementById("approve-backdrop");
+  const apClose    = document.getElementById("ap-close");
+  const apCancel   = document.getElementById("ap-cancel");
+  const apForm     = document.getElementById("approve-form");
+
+  const apCode   = document.getElementById("ap-code");
+  const apDate   = document.getElementById("ap-date");
+  const apTime   = document.getElementById("ap-time");
+  const apChair  = document.getElementById("ap-chair");
+  const apCom1   = document.getElementById("ap-com1");
+  const apCom2   = document.getElementById("ap-com2");
+  const apAdvisor= document.getElementById("ap-advisor");
+
+  /* ---------- โมดอลสำเร็จ (แยกต่างหาก) ---------- */
+  const apsBackdrop = document.getElementById("approve-success-backdrop");
+  const apsClose    = document.getElementById("aps-close");
+  const apsOk       = document.getElementById("aps-ok");
+  const aps = {
+    code:    document.getElementById("aps-code"),
+    date:    document.getElementById("aps-date"),
+    time:    document.getElementById("aps-time"),
+    chair:   document.getElementById("aps-chair"),
+    com1:    document.getElementById("aps-com1"),
+    com2:    document.getElementById("aps-com2"),
+    advisor: document.getElementById("aps-advisor")
+  };
+
+  // ถ้า element สำคัญยังไม่ครบ ให้หยุด (กัน error เมื่อวางไฟล์ยังไม่ครบ)
+  if (!openApproveBtn || !apBackdrop || !apForm || !apsBackdrop) return;
+
+  /* ---------- Helpers ---------- */
+  let lastFocused = null;
+
+  function fillTeacherOptions(select, excludeList = []) {
+    select.innerHTML = '<option value="">— เลือก —</option>';
+    TEACHERS
+      .filter(name => !excludeList.includes(name))
+      .forEach(name => {
+        const opt = document.createElement("option");
+        opt.value = name;
+        opt.textContent = name;
+        select.appendChild(opt);
+      });
+  }
+
+  /* ---------- เปิด/ปิด โมดอลนัดสอบ ---------- */
+  function openApproveModal() {
+    lastFocused = document.activeElement;
+
+    const codeText    = (detailCodeEl?.textContent || "").trim();
+    const advisorName = (detailAdvisorEl?.textContent || "").trim();
+
+    // ตั้งค่าเริ่มต้น
+    apCode.value    = codeText || "-";
+    apAdvisor.value = advisorName || "";
+    apDate.min      = todayISO();
+
+    // เติม options (กัน advisor ไม่ให้เลือกซ้ำ)
+    fillTeacherOptions(apChair, [advisorName]);
+    fillTeacherOptions(apCom1,  [advisorName]);
+    fillTeacherOptions(apCom2,  [advisorName]);
+
+    // เปิด popup
+    apBackdrop.classList.add("is-open");
+    apBackdrop.removeAttribute("aria-hidden");
+    document.body.style.overflow = "hidden";
+    apDate.focus();
+  }
+
+  function closeApproveModal() {
+    apBackdrop.classList.remove("is-open");
+    apBackdrop.setAttribute("aria-hidden","true");
+    document.body.style.overflow = "";
+    lastFocused?.focus?.();
+  }
+
+  /* ---------- เปิด/ปิด โมดอลสำเร็จ ---------- */
+  function openSuccessModal(payload) {
+    aps.code.textContent    = payload.code    || "-";
+    aps.date.textContent    = payload.date    || "-";
+    aps.time.textContent    = payload.time    || "-";
+    aps.chair.textContent   = payload.chair   || "-";
+    aps.com1.textContent    = payload.com1    || "-";
+    aps.com2.textContent    = payload.com2    || "-";
+    aps.advisor.textContent = payload.advisor || "-";
+
+    apsBackdrop.classList.add("is-open");
+    apsBackdrop.removeAttribute("aria-hidden");
+    document.body.style.overflow = "hidden";
+    apsOk.focus();
+  }
+
+  function closeSuccessModal() {
+    apsBackdrop.classList.remove("is-open");
+    apsBackdrop.setAttribute("aria-hidden","true");
+    document.body.style.overflow = "";
+  }
+
+  /* ---------- Events: เปิดโมดอลจากปุ่มในรายละเอียด ---------- */
+  openApproveBtn.addEventListener("click", () => openApproveModal());
+
+  /* ---------- Events: ปิดโมดอลนัดสอบ ---------- */
+  apBackdrop.addEventListener("click", (e) => { if (e.target === apBackdrop) closeApproveModal(); });
+  apClose.addEventListener("click", closeApproveModal);
+  apCancel.addEventListener("click", closeApproveModal);
+  document.addEventListener("keydown", (e) => {
+    if (apBackdrop.classList.contains("is-open") && e.key === "Escape") closeApproveModal();
+  });
+
+  /* ---------- Events: ปิดโมดอลสำเร็จ ---------- */
+  apsBackdrop.addEventListener("click", (e) => { if (e.target === apsBackdrop) closeSuccessModal(); });
+  apsClose.addEventListener("click", closeSuccessModal);
+  apsOk.addEventListener("click", closeSuccessModal);
+  document.addEventListener("keydown", (e) => {
+    if (apsBackdrop.classList.contains("is-open") && e.key === "Escape") closeSuccessModal();
+  });
+
+  /* ---------- ฟังก์ชันตรวจข้อมูลซ้ำ ---------- */
+  function hasDuplicateCommittee() {
+    const names = [apChair.value, apCom1.value, apCom2.value].filter(Boolean);
+    return new Set(names).size !== names.length; // true ถ้าซ้ำ
+  }
+
+  /* ---------- ส่งฟอร์มนัดสอบ ---------- */
+  apForm.addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    // ตรวจข้อมูลจำเป็น
+    if (!apDate.value || !apTime.value || !apChair.value || !apCom1.value || !apCom2.value) {
+      alert("กรุณากรอกข้อมูลให้ครบถ้วน");
+      return;
+    }
+    // กันรายชื่อประธาน/กรรมการซ้ำกัน
+    if (hasDuplicateCommittee()) {
+      alert("รายชื่อประธาน/กรรมการซ้ำกัน กรุณาเลือกให้แตกต่างกัน");
+      return;
+    }
+
+    try {
+      // ---- จุดเชื่อมต่อ Back-end จริง (ตัวอย่าง) ----
+      // const payload = {
+      //   code: apCode.value,
+      //   date: apDate.value,
+      //   time: apTime.value,
+      //   chair: apChair.value,
+      //   com1: apCom1.value,
+      //   com2: apCom2.value,
+      //   advisor: apAdvisor.value
+      // };
+      // const resp = await fetch('/api/approve-exam', {
+      //   method: 'POST',
+      //   headers: { 'Content-Type': 'application/json' },
+      //   body: JSON.stringify(payload)
+      // });
+      // if (!resp.ok) throw new Error('Server error ' + resp.status);
+      // const result = await resp.json();
+
+      // เดโม่: หน่วงเวลาให้เหมือนเรียก server
+      await new Promise(r => setTimeout(r, 150));
+
+      // ปิด popup นัดสอบ
+      const payload = {
+        code: apCode.value,
+        date: apDate.value,
+        time: apTime.value,
+        chair: apChair.value,
+        com1: apCom1.value,
+        com2: apCom2.value,
+        advisor: apAdvisor.value
+      };
+      closeApproveModal();
+
+      // เปิด popup สำเร็จ (แยกหน้าต่าง)
+      openSuccessModal(payload);
+
+      // ล้างฟอร์มสำหรับครั้งถัดไป
+      apForm.reset();
+    } catch (err) {
+      console.error(err);
+      alert("บันทึกไม่สำเร็จ กรุณาลองใหม่");
+    }
+  });
+})();
+</script>
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>อาจารย์ที่ปรึกษา | ตรวจรายงานความคืบหน้า</title>
+  <link rel="stylesheet" href="css/mystyle.css" />
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="header-info">
+      <h1 class="header-title">ระบบการจัดการข้อมูลโครงงานพิเศษ และโครงงานสหกิจ</h1>
+    </div>
+  </header>
+
+  <!-- Navbar -->
+  <nav>
+    <ul>
+      <li><a href="https://www.kmutnb.ac.th/">KMUTNB</a></li>
+      <li><a href="http://202.44.47.45/fitm/">FITM</a></li>
+      <li><a href="http://202.44.47.45/fitm/departments/IT">IT DEPT</a></li>
+    </ul>
+  </nav>
+
+  <div class="container">
+    <!-- Aside -->
+    <aside>
+      <div class="main-Index"><a href="indexTeacher.html">หน้าหลัก (อาจารย์)</a></div>
+      <div class="view-Progress"><a href="#">ตรวจรายงานความคืบหน้า</a></div>
+      <div class="Logout-acc"><a href="index.html">ออกจากระบบ</a></div>
+    </aside>
+
+    <!-- Main -->
+    <div class="main-content">
+      <article>
+        <div class="container-article" role="region" aria-labelledby="project-title">
+          <div class="main-content-article">
+            <h2 id="project-title">รายการโครงงานที่ดูแล (อาจารย์ที่ปรึกษา)</h2>
+          </div>
+
+          <div class="sub-content-article" style="margin-right:1rem;">
+            <h3 class="section-title">ตรวจสอบการส่งความคืบหน้าโครงงาน</h3>
+
+            <!-- ตารางรายการโครงงานสำหรับอาจารย์ -->
+            <div class="table-scroll">
+              <table class="admin-table" aria-describedby="table-caption">
+                <caption id="table-caption" class="sr-only">
+                  ตารางรายการโครงงานที่อาจารย์ที่ปรึกษาดูแลเพื่อเปิดดูรายงานความคืบหน้า
+                </caption>
+                <thead>
+                  <tr>
+                    <th style="width:140px;">อัปเดตล่าสุด</th>
+                    <th>ชื่อโครงงาน</th>
+                    <th>ผู้จัดทำ</th>
+                    <th style="width:160px;">จัดการ</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <!-- แถวตัวอย่าง #1 -->
+                  <tr>
+                    <td class="center">08/08/68</td>
+                    <td>หุ่นยนต์ตรวจสอบความสมบูรณ์ของป่าชายเลน</td>
+                    <td>พีรกานต์ ไกรพินิจ</td>
+                    <td class="center">
+                      <button
+                        type="button"
+                        class="btn-small view-reports"
+                        data-code="6810001"
+                        data-title-th="หุ่นยนต์ตรวจสอบความสมบูรณ์ของป่าชายเลน"
+                        data-title-en="Monitoring Buoys in Mangrove Forests"
+                        data-student-id="6806022511129"
+                        data-student-name="พีรกานต์ ไกรพินิจ"
+                        data-advisor="ผศ.ดร.สุพาภรณ์ ซิ้มเจริญ"
+                        data-email="s6806022511129@email.kmutnb.ac.th">
+                        ดูรายงานความคืบหน้า
+                      </button>
+                    </td>
+                  </tr>
+
+                  <!-- แถวตัวอย่าง #2 -->
+                  <tr>
+                    <td class="center">15/08/68</td>
+                    <td>ระบบติดตามคุณภาพน้ำในป่าชายเลน</td>
+                    <td>สมชาย ใจดี</td>
+                    <td class="center">
+                      <button
+                        type="button"
+                        class="btn-small view-reports"
+                        data-code="6810002"
+                        data-title-th="ระบบติดตามคุณภาพน้ำในป่าชายเลน"
+                        data-title-en="Water Quality Monitoring in Mangrove"
+                        data-student-id="6806022511101"
+                        data-student-name="สมชาย ใจดี"
+                        data-advisor="อ.ดร.สุรีย์ ไตรภพ"
+                        data-email="s6806022511101@email.kmutnb.ac.th">
+                        ดูรายงานความคืบหน้า
+                      </button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div><!-- .table-scroll -->
+          </div><!-- .sub-content-article -->
+
+        </div>
+      </article>
+    </div><!-- .main-content -->
+  </div><!-- .container -->
+
+  <!-- Footer -->
+  <footer>
+    <div class="Footer">
+      <div class="Footer-img-logo">
+        <img src="img/fitm-logo-2.png" alt="Logo" />
+      </div>
+      <div class="text-center-footer">
+        <p>มหาวิทยาลัยเทคโนโลยีพระจอมเกล้าพระนครเหนือ วิทยาเขตปราจีนบุรี</p>
+        <p>คณะเทคโนโลยีและการจัดการอุตสาหกรรม</p>
+        <p>129 หมู่ 21 ตำบลเนินหอม อำเภอเมือง จังหวัดปราจีนบุรี 25230</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===== Popup: รายละเอียดการส่งรายงาน (สำหรับอาจารย์ตรวจ/อนุมัติ) ===== -->
+  <div class="modal-backdrop" id="reports-backdrop" aria-hidden="true">
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="reports-title" aria-describedby="reports-desc">
+      <div class="modal-header">
+        <h3 id="reports-title">ตรวจสอบการรายงาน</h3>
+        <button class="modal-close" id="reports-close" aria-label="ปิดหน้าต่าง">&times;</button>
+      </div>
+
+      <div class="modal-body" id="reports-desc">
+        <!-- สรุปหัวข้อโครงงาน -->
+        <div class="project-brief">
+          <div><strong>รหัส:</strong> <span id="brief-code">—</span></div>
+          <div><strong>ชื่อโครงงาน:</strong> <span id="brief-title-th">—</span></div>
+          <div><strong>ผู้จัดทำ:</strong> <span id="brief-student">—</span></div>
+          <div><strong>อาจารย์ที่ปรึกษา:</strong> <span id="brief-advisor">—</span></div>
+        </div>
+
+        <!-- ตารางรายงานที่ส่งมา -->
+        <div class="table-scroll">
+          <table class="report-table" id="report-table">
+            <thead>
+              <tr>
+                <th style="width:80px;">ครั้งที่</th>
+                <th>ไฟล์รายงาน</th>
+                <th style="width:140px;">วันที่รายงาน</th>
+                <th style="width:140px;">สถานะ</th>
+                <th>ความคิดเห็นอาจารย์</th>
+                <th style="width:120px;">ตรวจ</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- ตัวอย่างข้อมูลเริ่มต้น (จะแทนค่าจริงใน JS หากต้องการ) -->
+              <tr>
+                <td class="center">1</td>
+                <td><a href="#" class="file-link">Commit01.pdf</a></td>
+                <td class="center">01/08/68</td>
+                <td class="center"><span class="status-badge status-percent" data-pct="25">25%</span></td>
+                <td class="comment-cell">ปรับ Format เหมาะสม</td>
+                <td class="center">
+                  <button class="btn-xsmall select-attempt" type="button">เลือก</button>
+                </td>
+              </tr>
+              <tr>
+                <td class="center">2</td>
+                <td><a href="#" class="file-link">Commit02.pdf</a></td>
+                <td class="center">08/08/68</td>
+                <td class="center"><span class="status-badge status-wait" data-pct="">รอตรวจ</span></td>
+                <td class="comment-cell"></td>
+                <td class="center">
+                  <button class="btn-xsmall select-attempt" type="button">เลือก</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- แผงสำหรับอาจารย์ตรวจ/อนุมัติ -->
+        <div class="review-panel" aria-live="polite">
+          <h4>ตรวจ/อนุมัติความคืบหน้า</h4>
+          <div class="review-grid">
+            <div class="review-field">
+              <label>ครั้งที่</label>
+              <input type="text" id="rev-attempt" readonly>
+            </div>
+            <div class="review-field">
+              <label>ไฟล์</label>
+              <input type="text" id="rev-file" readonly>
+            </div>
+            <div class="review-field">
+              <label>วันที่รายงาน</label>
+              <input type="text" id="rev-date" readonly>
+            </div>
+            <div class="review-field">
+              <label>ตั้ง % ความคืบหน้า</label>
+              <input type="number" id="rev-percent" min="0" max="100" step="5" placeholder="0 - 100">
+            </div>
+            <div class="review-field review-wide">
+              <label>ความเห็นอาจารย์</label>
+              <textarea id="rev-comment" rows="3" placeholder="เช่น ปรับ format โปรแกรมให้ดีขึ้น"></textarea>
+            </div>
+          </div>
+
+          <div class="review-actions">
+            <button type="button" class="modal-button btn-approve" id="btn-approve">อนุมัติและบันทึก %</button>
+            <button type="button" class="modal-button" id="btn-return">ส่งความเห็นกลับ</button>
+            <span class="review-hint">* เลือกแถวในตารางก่อน (ปุ่ม “เลือก”)</span>
+          </div>
+        </div>
+
+        <div class="modal-actions">
+          <button type="button" class="modal-button" id="reports-ok">ปิดหน้าต่าง</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== Script: เปิด/ปิด modal + ตรวจ/อนุมัติ (เดโม่) ===== -->
+  <script>
+  (function(){
+    const openButtons = document.querySelectorAll('.view-reports');
+    const backdrop    = document.getElementById('reports-backdrop');
+    const closeBtn    = document.getElementById('reports-close');
+    const okBtn       = document.getElementById('reports-ok');
+
+    // Brief fields (หัวตาราง)
+    const brief = {
+      code:     document.getElementById('brief-code'),
+      titleTH:  document.getElementById('brief-title-th'),
+      student:  document.getElementById('brief-student'),
+      advisor:  document.getElementById('brief-advisor'),
+    };
+
+    // Review panel fields
+    const tbl        = document.getElementById('report-table');
+    const revAttempt = document.getElementById('rev-attempt');
+    const revFile    = document.getElementById('rev-file');
+    const revDate    = document.getElementById('rev-date');
+    const revPercent = document.getElementById('rev-percent');
+    const revComment = document.getElementById('rev-comment');
+    const btnApprove = document.getElementById('btn-approve');
+    const btnReturn  = document.getElementById('btn-return');
+
+    let lastFocus = null;
+    let selectedRow = null;
+
+    function openModal(data){
+      lastFocus = document.activeElement;
+      // ใส่สรุปหัวข้อโครงงาน
+      brief.code.textContent    = data.code || '—';
+      brief.titleTH.textContent = data.titleTH || '—';
+      brief.student.textContent = `${data.studentId || ''} — ${data.studentName || ''}`.trim() || '—';
+      brief.advisor.textContent = data.advisor || '—';
+
+      // รีเซ็ต panel ตรวจ
+      selectedRow = null;
+      revAttempt.value = '';
+      revFile.value    = '';
+      revDate.value    = '';
+      revPercent.value = '';
+      revComment.value = '';
+
+      backdrop.classList.add('is-open');
+      backdrop.removeAttribute('aria-hidden');
+      document.body.style.overflow = 'hidden';
+      closeBtn.focus();
+    }
+    function closeModal(){
+      backdrop.classList.remove('is-open');
+      backdrop.setAttribute('aria-hidden','true');
+      document.body.style.overflow = '';
+      lastFocus && lastFocus.focus && lastFocus.focus();
+    }
+
+    // เปิด modal จากปุ่มในตารางโครงงาน
+    openButtons.forEach(btn=>{
+      btn.addEventListener('click', ()=>{
+        const data = {
+          code:       btn.dataset.code,
+          titleTH:    btn.dataset.titleTh,
+          studentId:  btn.dataset.studentId,
+          studentName:btn.dataset.studentName,
+          advisor:    btn.dataset.advisor,
+        };
+        openModal(data);
+      });
+    });
+
+    // ปิด modal
+    closeBtn.addEventListener('click', closeModal);
+    okBtn.addEventListener('click', closeModal);
+    backdrop.addEventListener('click', (e)=>{ if (e.target===backdrop) closeModal(); });
+    document.addEventListener('keydown', (e)=>{
+      if (backdrop.classList.contains('is-open') && e.key==='Escape') closeModal();
+    });
+
+    // เลือก "ครั้งที่" จากตารางภายใน modal
+    tbl.addEventListener('click', (e)=>{
+      const btn = e.target.closest('.select-attempt');
+      if (!btn) return;
+      const row = btn.closest('tr');
+      if (!row) return;
+
+      // ไฮไลต์แถวที่เลือก
+      if (selectedRow) selectedRow.classList.remove('row-selected');
+      selectedRow = row;
+      row.classList.add('row-selected');
+
+      const attempt = row.cells[0].textContent.trim();
+      const file    = row.querySelector('.file-link')?.textContent.trim() || '';
+      const date    = row.cells[2].textContent.trim();
+      const badge   = row.querySelector('.status-badge');
+      const pct     = badge?.dataset.pct || '';
+
+      // เติมลง panel
+      revAttempt.value = attempt;
+      revFile.value    = file;
+      revDate.value    = date;
+      revPercent.value = pct; // ถ้าเคยมี % แล้ว จะใส่ให้เลย
+      revComment.value = row.querySelector('.comment-cell')?.textContent.trim() || '';
+    });
+
+    // ปุ่ม "อนุมัติและบันทึก %"
+    btnApprove.addEventListener('click', ()=>{
+      if (!selectedRow){
+        alert('กรุณาเลือกแถว (ปุ่ม "เลือก") ก่อน');
+        return;
+      }
+      const val = revPercent.value.trim();
+      const pct = Number(val);
+      if (val==='' || isNaN(pct) || pct<0 || pct>100){
+        alert('กรุณากรอก % ความคืบหน้าเป็นตัวเลข 0-100');
+        revPercent.focus();
+        return;
+      }
+      // อัปเดต badge + comment ในแถวที่เลือก (เดโม่ฝั่งหน้า)
+      const badge = selectedRow.querySelector('.status-badge');
+      badge.className = 'status-badge status-percent';
+      badge.textContent = pct + '%';
+      badge.dataset.pct = pct;
+
+      const ccell = selectedRow.querySelector('.comment-cell');
+      ccell.textContent = revComment.value.trim();
+
+      alert('บันทึกผลแล้ว (เดโม่) ✔');
+    });
+
+    // ปุ่ม "ส่งความเห็นกลับ" (ยังไม่ตั้ง %)
+    btnReturn.addEventListener('click', ()=>{
+      if (!selectedRow){
+        alert('กรุณาเลือกแถว (ปุ่ม "เลือก") ก่อน');
+        return;
+      }
+      // สถานะเป็น "รอตรวจ" แต่บันทึกคอมเมนต์ไว้
+      const badge = selectedRow.querySelector('.status-badge');
+      badge.className = 'status-badge status-wait';
+      badge.textContent = 'รอตรวจ';
+      badge.dataset.pct = '';
+
+      const ccell = selectedRow.querySelector('.comment-cell');
+      ccell.textContent = revComment.value.trim();
+
+      alert('ส่งความเห็นกลับแล้ว (เดโม่) ✉️');
+    });
+  })();
+  </script>
+</body>
+</html>

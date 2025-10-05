@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ดูรายชื่อโครงงานพิเศษ</title>
+  <link rel="stylesheet" href="css/mystyle.css" />
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="header-info">
+      <h1 class="header-title">ระบบการจัดการข้อมูลโครงงานพิเศษ และโครงงานสหกิจ</h1>
+    </div>
+  </header>
+
+  <!-- Navbar -->
+  <nav>
+    <ul>
+      <li><a href="https://www.kmutnb.ac.th/">KMUTNB</a></li>
+      <li><a href="http://202.44.47.45/fitm/">FITM</a></li>
+      <li><a href="http://202.44.47.45/fitm/departments/IT">IT DEPT</a></li>
+    </ul>
+  </nav>
+
+  <div class="container">
+    <!-- Aside -->
+    <aside>
+      <div class="main-Index"><a href="index.html">หน้าหลัก</a></div>
+      <!-- <div class="Send-Progress"><a href="#">ส่งความคืบหน้า</a></div>
+      <div class="view-Progress"><a href="View-Progress.html">ดูความคืบหน้า</a></div> -->
+      <div class="view-schedule-test-project"><a href="View-ExamSchedule.html">ดูตารางสอบโครงงานพิเศษ</a></div>
+      <div class="view-list-project"><a href="View-ProjectList.html">ดูรายชื่อโครงงานพิเศษ</a></div>
+      <div class="Logout-acc"><a href="index.html">ออกจากระบบ</a></div>
+    </aside>
+
+    <!-- Main -->
+    <div class="main-content">
+      <article>
+        <div class="container-article" role="region" aria-labelledby="list-title">
+          <div class="main-content-article">
+            <h2 id="list-title">รายชื่อโครงงานพิเศษ</h2>
+          </div>
+
+          <div class="sub-content-article" style="margin-right:1rem;">
+            <!-- แถบค้นหา -->
+            <div class="filter-row" aria-label="แถบค้นหา">
+              <input id="q" type="text" placeholder="ค้นหา: ชื่อโครงงาน / รายละเอียดโครงงาน" />
+              <button class="btn-small" id="btnClear">ล้าง</button>
+            </div>
+
+            <!-- ตารางรายชื่อโครงงาน -->
+            <div class="table-scroll">
+              <table class="admin-table" aria-describedby="projects-caption" id="projects-table">
+                <caption id="projects-caption" class="sr-only">ตารางรายชื่อโครงงานพิเศษ</caption>
+                <thead>
+                  <tr>
+                    <th style="width:50%;">ชื่อโครงงาน</th>
+                    <th>รายละเอียดโครงงาน</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <!-- แถวตัวอย่าง #1 -->
+                  <tr>
+                    <td>หุ่นยนต์ตรวจสอบความสมบูรณ์ของป่าชายเลน</td>
+                    <td>พัฒนาหุ่นยนต์ลอยน้ำและบอดี้บอยตรวจคุณภาพป่าชายเลน พร้อมระบบบันทึกข้อมูล</td>
+                  </tr>
+
+                  <!-- แถวตัวอย่าง #2 -->
+                  <tr>
+                    <td>ระบบติดตามคุณภาพน้ำในป่าชายเลน</td>
+                    <td>ออกแบบเซ็นเซอร์ตรวจวัดค่า DO/EC/อุณหภูมิ และแดชบอร์ดแสดงผลแบบเรียลไทม์</td>
+                  </tr>
+
+                  <!-- แถวตัวอย่าง #3 -->
+                  <tr>
+                    <td>ระบบบริหารจัดการข้อมูลโครงงานพิเศษออนไลน์</td>
+                    <td>พัฒนาเว็บแอปพลิเคชันสำหรับนักศึกษาและอาจารย์ที่ปรึกษาในการส่งและตรวจรายงาน</td>
+                  </tr>
+
+                </tbody>
+              </table>
+            </div>
+
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="Footer">
+      <div class="Footer-img-logo"><img src="img/fitm-logo-2.png" alt="Logo" /></div>
+      <div class="text-center-footer">
+        <p>มหาวิทยาลัยเทคโนโลยีพระจอมเกล้าพระนครเหนือ วิทยาเขตปราจีนบุรี</p>
+        <p>คณะเทคโนโลยีและการจัดการอุตสาหกรรม</p>
+        <p>129 หมู่ 21 ตำบลเนินหอม อำเภอเมือง จังหวัดปราจีนบุรี 25230</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Script: ฟิลเตอร์ค้นหา -->
+  <script>
+  (function(){
+    const q = document.getElementById('q');
+    const clear = document.getElementById('btnClear');
+    const rows = Array.from(document.querySelectorAll('#projects-table tbody tr'));
+
+    function filter(){
+      const v = (q.value || '').toLowerCase().trim();
+      rows.forEach(tr => {
+        const txt = tr.innerText.toLowerCase();
+        tr.style.display = txt.includes(v) ? '' : 'none';
+      });
+    }
+
+    q?.addEventListener('input', filter);
+    clear?.addEventListener('click', () => {
+      q.value = '';
+      filter();
+      q.focus();
+    });
+  })();
+  </script>
+</body>
+</html>

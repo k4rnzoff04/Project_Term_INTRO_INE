@@ -30,12 +30,12 @@
       <!-- <div class="Login">
         <a href="Login.html">เข้าสู่ระบบ</a>
       </div> -->
-      <!-- <div class="Register-Project-System">
-        <a href="#">ยื่นสอบ</a>
-      </div> -->
       <div class="main-Index">
         <a href="indexStd.html">หน้าหลัก</a>
       </div>
+      <!-- <div class="Register-Project-System">
+        <a href="#">ยื่นสอบ</a>
+      </div> -->
       <div class="Send-Progress">
         <a href="#">ส่งความคืบหน้า</a>
       </div>
@@ -43,10 +43,16 @@
         <a href="View-Progress.html">ดูความคืบหน้า</a>
       </div>
       <div class="view-schedule-test-project">
-        <a href="#">ดูตารางสอบโครงงานพิเศษ</a>
+        <a href="View-ExamSchedule.html">ดูตารางสอบโครงงานพิเศษ</a>
       </div>
       <div class="view-list-project">
-        <a href="#">ดูรายชื่อโครงงานพิเศษ</a>
+        <a href="View-ProjectList.html">ดูรายชื่อโครงงานพิเศษ</a>
+      </div>
+      <div class="view-indexStd-100">
+        <a href="indexStd-100.html">รายละเอียดโครงงาน (กรณีความคืบหน้า 100%)</a>
+      </div>
+      <div class="Logout-acc">
+        <a href="index.html">ออกจากระบบ</a>
       </div>
     </aside>
 
@@ -204,6 +210,64 @@
   </div>
 </div>
 
+<!-- ===== Popup: ยื่นสอบโครงงานพิเศษ ===== -->
+<div class="modal-backdrop" id="submit-exam-backdrop" aria-hidden="true">
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="submit-exam-title" aria-describedby="submit-exam-desc">
+    <div class="modal-header">
+      <h3 id="submit-exam-title">ยื่นสอบโครงงานพิเศษ</h3>
+      <button class="modal-close" id="submit-exam-close" aria-label="ปิดหน้าต่าง">&times;</button>
+    </div>
+
+    <div class="modal-body" id="submit-exam-desc">
+      <!-- สรุปคำอธิบายสั้น ๆ -->
+      <p style="margin-top:0;color:#444">
+        โปรดตรวจสอบรายละเอียดโครงงานให้ถูกต้อง ก่อนกด “ยื่นสอบ 100%”
+      </p>
+
+      <!-- พื้นที่แสดงรายละเอียด (ดึงจาก sub-content-article อัตโนมัติ) -->
+      <div id="submit-exam-details" class="detail-grid" aria-live="polite" aria-busy="false"></div>
+
+      <!-- ปุ่มยื่นสอบ -->
+      <div class="modal-actions">
+        <button type="button" class="modal-button btn-approve" id="submit-exam-confirm">ยื่นสอบ 100%</button>
+        <button type="button" class="modal-button" id="submit-exam-cancel">ยกเลิก</button>
+      </div>
+
+      <!-- Success pane -->
+      <!-- <div id="submit-exam-success" class="success-pane" hidden>
+        <div class="success-icon" aria-hidden="true">✔</div>
+        <h3 class="success-title">ยื่นสอบสำเร็จ</h3>
+        <p class="success-text">ระบบบันทึกคำขอยื่นสอบของคุณเรียบร้อยแล้ว</p>
+        <div class="modal-actions">
+          <button type="button" class="modal-button" id="submit-exam-done">ปิดหน้าต่าง</button>
+        </div>
+      </div> -->
+    </div>
+  </div>
+</div>
+
+<!-- ===== Popup: ยื่นสอบสำเร็จ (แยกต่างหาก) ===== -->
+<div class="modal-backdrop" id="submit-exam-success-backdrop" aria-hidden="true">
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="submit-success-title" aria-describedby="submit-success-desc">
+    <div class="modal-header">
+      <h3 id="submit-success-title">ยื่นสอบสำเร็จ</h3>
+      <button class="modal-close" id="submit-success-close" aria-label="ปิดหน้าต่าง">&times;</button>
+    </div>
+
+    <div class="modal-body" id="submit-success-desc">
+      <div class="success-pane">
+        <div class="success-icon" aria-hidden="true">✔</div>
+        <h3 class="success-title">ระบบบันทึกคำขอยื่นสอบเรียบร้อยแล้ว</h3>
+        <p class="success-text">ขอบคุณค่ะ/ครับ</p>
+        <div class="modal-actions">
+          <button type="button" class="modal-button" id="submit-success-done">ปิดหน้าต่าง</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
 <!-- Script Popup ส่งความคืบหน้า -->
 <script>
 "use strict";
@@ -322,6 +386,137 @@
   });
 })();
 </script>
+
+<script>
+"use strict";
+(function () {
+  // ปุ่มเปิดมาจากเมนู "ยื่นสอบ"
+  const openLink = document.querySelector(".Register-Project-System a");
+
+  // ===== โมดอลยื่นสอบ (ตัวหลัก)
+  const backdrop = document.getElementById("submit-exam-backdrop");
+  const dialog   = backdrop ? backdrop.querySelector(".modal") : null;
+  const bodyEl   = document.getElementById("submit-exam-desc");
+  const closeBtn = document.getElementById("submit-exam-close");
+  const cancelBtn= document.getElementById("submit-exam-cancel");
+  const confirmBtn=document.getElementById("submit-exam-confirm");
+  const detailsBox = document.getElementById("submit-exam-details");
+
+  // ===== โมดอล "ยื่นสอบสำเร็จ" (ตัวใหม่ แยกต่างหาก)
+  const successBackdrop = document.getElementById("submit-exam-success-backdrop");
+  const successDialog   = successBackdrop ? successBackdrop.querySelector(".modal") : null;
+  const successCloseBtn = document.getElementById("submit-success-close");
+  const successDoneBtn  = document.getElementById("submit-success-done");
+
+  if (!openLink || !backdrop || !dialog || !closeBtn || !detailsBox || !successBackdrop) return;
+
+  let lastFocused = null;
+
+  function getFocusableEls(container) {
+    return container.querySelectorAll('a[href], button:not([disabled]), textarea, input, select, [tabindex]:not([tabindex="-1"])');
+  }
+
+  // ดึงข้อมูลจาก .sub-content-article dl มาโชว์ใน popup
+  function renderDetails() {
+    detailsBox.innerHTML = "";
+    detailsBox.setAttribute("aria-busy","true");
+    const src = document.querySelector(".sub-content-article dl");
+    if (!src) { detailsBox.textContent = "ไม่พบข้อมูล"; return; }
+    const clone = src.cloneNode(true);
+    clone.querySelectorAll("a").forEach(a => {
+      const span = document.createElement("span");
+      span.textContent = a.textContent || a.href;
+      a.replaceWith(span);
+    });
+    clone.querySelectorAll("div").forEach(div=>{
+      if (!div.classList.contains("row-sub-content")) div.classList.add("row-sub-content");
+    });
+    clone.querySelectorAll(".row-sub-content").forEach(row => detailsBox.appendChild(row));
+    detailsBox.removeAttribute("aria-busy");
+  }
+
+  // ===== เปิด/ปิดโมดอลยื่นสอบ
+  function openMain() {
+    lastFocused = document.activeElement;
+    renderDetails();
+    backdrop.classList.add("is-open");
+    backdrop.removeAttribute("aria-hidden");
+    document.body.style.overflow = "hidden";
+    (dialog.querySelector("button,[href],input,textarea,select"))?.focus();
+  }
+  function closeMain() {
+    backdrop.classList.remove("is-open");
+    backdrop.setAttribute("aria-hidden","true");
+    document.body.style.overflow = "";
+    lastFocused?.focus?.();
+  }
+
+  // ===== เปิด/ปิดโมดอลสำเร็จ
+  function openSuccess() {
+    successBackdrop.classList.add("is-open");
+    successBackdrop.removeAttribute("aria-hidden");
+    document.body.style.overflow = "hidden";
+    (successDialog.querySelector("button,[href],input,textarea,select"))?.focus();
+  }
+  function closeSuccess() {
+    successBackdrop.classList.remove("is-open");
+    successBackdrop.setAttribute("aria-hidden","true");
+    document.body.style.overflow = "";
+    lastFocused?.focus?.();
+  }
+
+  // Event: เปิด
+  openLink.addEventListener("click",(e)=>{ e.preventDefault(); openMain(); });
+
+  // Event: ปิด (โมดอลหลัก)
+  backdrop.addEventListener("click",(e)=>{ if (e.target===backdrop) closeMain(); });
+  closeBtn.addEventListener("click", closeMain);
+  cancelBtn?.addEventListener("click", closeMain);
+  document.addEventListener("keydown",(e)=>{
+    if (backdrop.classList.contains("is-open") && e.key==="Escape") closeMain();
+  });
+
+  // Trap focus ในโมดอลหลัก
+  dialog.addEventListener("keydown",(e)=>{
+    if (e.key!=="Tab") return;
+    const f = getFocusableEls(dialog); if (!f.length) return;
+    const first=f[0], last=f[f.length-1], active=document.activeElement;
+    if (e.shiftKey && active===first){ last.focus(); e.preventDefault(); }
+    else if (!e.shiftKey && active===last){ first.focus(); e.preventDefault(); }
+  });
+
+  // กดยืนยัน "ยื่นสอบ 100%" → ปิดโมดอลหลัก แล้วเปิดโมดอลสำเร็จ
+  confirmBtn?.addEventListener("click", async ()=>{
+    // TODO: เรียก API จริงได้ตรงนี้ (ปัจจุบัน demo)
+    confirmBtn.disabled = true;
+    confirmBtn.textContent = "กำลังยื่น...";
+    await new Promise(r=>setTimeout(r,300));
+    confirmBtn.disabled = false;
+    confirmBtn.textContent = "ยื่นสอบ 100%";
+
+    closeMain();
+    openSuccess();
+  });
+
+  // Event: ปิด (โมดอลสำเร็จ)
+  successBackdrop.addEventListener("click",(e)=>{ if (e.target===successBackdrop) closeSuccess(); });
+  successCloseBtn?.addEventListener("click", closeSuccess);
+  successDoneBtn?.addEventListener("click", closeSuccess);
+  document.addEventListener("keydown",(e)=>{
+    if (successBackdrop.classList.contains("is-open") && e.key==="Escape") closeSuccess();
+  });
+
+  // Trap focus ในโมดอลสำเร็จ
+  successDialog?.addEventListener("keydown",(e)=>{
+    if (e.key!=="Tab") return;
+    const f = getFocusableEls(successDialog); if (!f.length) return;
+    const first=f[0], last=f[f.length-1], active=document.activeElement;
+    if (e.shiftKey && active===first){ last.focus(); e.preventDefault(); }
+    else if (!e.shiftKey && active===last){ first.focus(); e.preventDefault(); }
+  });
+})();
+</script>
+
 
 
 </body>
